@@ -1,0 +1,30 @@
+/* Variables */
+
+:root {
+    --white: rgba(255, 255, 255, 1);
+    --dark-red: rgba(153, 1, 0, 1);
+    --chestnut: rgba(183, 77, 76, 1);
+    --whisper: rgba(236, 236, 236, 1);
+    --font-size-m: 12px;
+    --font-size-l: 18px;
+
+    --font-family-aileron-bold: "Aileron-Bold";
+}
+
+/* Classes */
+
+.aileron-bold-white-12px {
+    color: var(--white);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-bold-white-18px {
+    color: var(--white);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-l);
+    font-weight: 700;
+    font-style: normal;
+}
