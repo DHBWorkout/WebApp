@@ -4,8 +4,7 @@
     font-family: "Aileron-Bold";
     font-style: normal;
     font-weight: 700;
-    src: url("https://fonts.animaapp.com/Aileron-Bold")
-    format(truetype);
+    src: url("https://fonts.animaapp.com/Aileron-Bold") format(truetype);
 }
 
 .sidebar-background {
@@ -15,11 +14,13 @@
 }
 
 .sidebar-mainicon__container {
-
+    height: 40vh;
+    width: 100%;
 }
 
 .sidebar-mainicon {
-
+    height: auto;
+    width: 100%;
 }
 
 .sidebar-menu {
@@ -28,15 +29,32 @@
     align-self: flex-end;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 60vh;
     width: 100%;
 }
 
-.sidebar-icon__container {
+.sidebar-button {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+}
 
+.sidebar-icon__container {
+    display: flex;
+    align-items: center;
+    width: 10vh;
+    height: 100%;
 }
 
 .sidebar-icon {
-
+    height: 4vh;
+    width: 50%;
 }
 
+.sidebar-string {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
