@@ -34,7 +34,6 @@ pipeline {
                      * Second, the 'latest' tag.
                      * Pushing multiple tags is cheap, as all the layers are reused. */
                     docker.withRegistry('http://10.22.100.20:9005', 'nexus-credentials') {
-                        app.push("${TAG_SELECTOR}")
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
