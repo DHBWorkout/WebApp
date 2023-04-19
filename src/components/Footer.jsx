@@ -10,7 +10,7 @@ export default function Footer() {
                 <div className="footer-button">
                     <Link to='/pdf/kontakt'>
                         <div className="footer-label">
-                            <span className="aileron-bold-white-12px">Kontakt</span>
+                            <p className="aileron-bold-white-12px">Kontakt</p>
                         </div>
                     </Link>
                 </div>
@@ -18,7 +18,7 @@ export default function Footer() {
                 <div className="footer-button">
                     <Link to='/pdf/impressum'>
                         <div className="footer-label">
-                            <span className="aileron-bold-white-12px">Impressum</span>
+                            <p className="footer-text aileron-bold-white-12px">Impressum</p>
                         </div>
                     </Link>
                 </div>
@@ -26,7 +26,7 @@ export default function Footer() {
                 <div className="footer-button">
                     <Link to='/pdf/datenschutzerklaerung'>
                         <div className="footer-label">
-                            <span className="aileron-bold-white-12px">Datenschutzerklärung</span>
+                            <p className="aileron-bold-white-12px">Datenschutzerklärung</p>
                         </div>
                     </Link>
                 </div>
@@ -34,7 +34,7 @@ export default function Footer() {
                 <div className="footer-button">
                     <Link to='/pdf/agb'>
                         <div className="footer-label">
-                            <span className="aileron-bold-white-12px">AGBs</span>
+                            <p className="aileron-bold-white-12px">AGBs</p>
                         </div>
                     </Link>
                 </div>

@@ -1,0 +1,26 @@
+.main-content_container {
+    position: absolute;
+    top:0;
+    right:0;
+    height: 90vh;
+    width: 80%;
+}
+
+
+.text_container {
+    position: relative;
+    top: 11.11%;
+    left: 12.5%;
+    height: 70vh;
+    width: 75%;
+    
+}
+
+.text-header {
+    text-align: center;
+}
+
+.text {
+    text-align: justify;
+
+}
