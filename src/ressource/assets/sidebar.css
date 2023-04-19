@@ -35,6 +35,7 @@
 
 .sidebar-button {
     position: relative;
+    left: -10%;
     width: 100%;
     height: 10vh;
     display: flex;
@@ -42,19 +43,22 @@
 }
 
 .sidebar-icon__container {
-    display: flex;
-    align-items: center;
+    position: absolute;
+    left: 20%;
     width: 10vh;
     height: 100%;
 }
 
 .sidebar-icon {
-    height: 4vh;
-    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 25%;
+    height: 35px;
+    width: 35px;
 }
 
 .sidebar-string {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 40%;
 }

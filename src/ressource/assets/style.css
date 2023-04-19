@@ -5,9 +5,14 @@
     --dark-red: rgba(153, 1, 0, 1);
     --chestnut: rgba(183, 77, 76, 1);
     --whisper: rgba(236, 236, 236, 1);
-    --font-size-m: 12px;
-    --font-size-l: 18px;
+    --black: rgba(0, 0, 0, 1);
+    --font-size-s: 12px;
+    --font-size-m: 14px;
+    --font-size-l: 16px;
+    --font-size-xl: 18px;
+    --font-size-xxl: 24px;
 
+    --font-family-aileron-regular: "Aileron-Regular";
     --font-family-aileron-bold: "Aileron-Bold";
 }
 
@@ -16,7 +21,31 @@
 .aileron-bold-white-12px {
     color: var(--white);
     font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-s);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-bold-black-12px {
+    color: var(--black);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-s);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-bold-white-14px {
+    color: var(--white);
+    font-family: var(--font-family-aileron-bold);
     font-size: var(--font-size-m);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-bold-black-16px {
+    color: var(--black);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-l);
     font-weight: 700;
     font-style: normal;
 }
@@ -24,7 +53,31 @@
 .aileron-bold-white-18px {
     color: var(--white);
     font-family: var(--font-family-aileron-bold);
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-bold-black-18px {
+    color: var(--black);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-regular-black-18px {
+    color: var(--black);
+    font-family: var(--font-family-aileron-regular);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-bold-black-24px {
+    color: var(--black);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-xxl);
     font-weight: 700;
     font-style: normal;
 }

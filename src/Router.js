@@ -1,6 +1,6 @@
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Mainpage from './pages/Mainpage'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import Home from './pages/Home'
 
 import Kontakt from './pages/Kontakt'
 import Impressum from './pages/Impressum'
@@ -13,7 +13,10 @@ export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path='/' element={<Mainpage />} />
+                <Route exact path='/' element={<Navigate to='home'/>}/>
+                
+                <Route path='home' element={<Home/>}/>
+
                 <Route path='pdf'>
                     <Route path='kontakt' element={<Kontakt />} />
                     <Route path='impressum' element={<Impressum />} />
