@@ -26,6 +26,15 @@
     background-color: var(--chestnut);
 }
 
+.footer-background-long {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 10vh;
+    width: 100%;
+    background-color: var(--chestnut);
+}
+
 .footer-button__container {
     height: 10vh;
     width: 100%;
@@ -38,10 +47,11 @@
     width: 25%;
 }
 
-.footer-label {
-    text-align: center;
+.footer-button:hover {
+    background-color: #883938;
 }
 
-.footer-text {
-
+.footer-label {
+    padding: 2.2vh 0;
+    text-align: center;
 }
