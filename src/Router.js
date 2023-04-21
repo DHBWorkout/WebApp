@@ -7,15 +7,19 @@ import Impressum from './pages/Impressum'
 import Datenschutzerklaerung from './pages/Datenschutzerklaerung'
 import AGBs from './pages/AGBs'
 
+import LoginView from './pages/LoginView'
+
 
 
 export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path='/' element={<Navigate to='home'/>}/>
-                
-                <Route path='home' element={<Home/>}/>
+                <Route exact path='/' element={<Navigate to='login' />} />
+
+                <Route path='home' element={<Home />} />
+
+                <Route path='login' element={<LoginView />} />
 
                 <Route path='pdf'>
                     <Route path='kontakt' element={<Kontakt />} />

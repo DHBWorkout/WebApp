@@ -1,0 +1,13 @@
+#input-field {
+    background-color: #ececec;
+    border: 2px solid var(--dark-red);
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#button {
+    background-color: var(--dark-red);
+    height: 30%;
+    width: 30%;
+}

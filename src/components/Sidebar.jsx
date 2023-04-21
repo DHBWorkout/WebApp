@@ -85,12 +85,14 @@ export default function Sidebar() {
                 </div>
 
                 <div className="sidebar-button">
-                    <div className="sidebar-icon__container">
-                        <img src={LogoutIcon} alt="logout icon" className="sidebar-icon" />
-                    </div>
-                    <div className="sidebar-string">
-                        <span className='aileron-bold-white-18px'>Logout</span>
-                    </div>
+                    <Link to='/login'>
+                        <div className="sidebar-icon__container">
+                            <img src={LogoutIcon} alt="logout icon" className="sidebar-icon" />
+                        </div>
+                        <div className="sidebar-string">
+                            <span className='aileron-bold-white-18px'>Logout</span>
+                        </div>
+                    </Link>
                 </div>
 
             </div>
