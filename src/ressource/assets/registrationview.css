@@ -1,0 +1,70 @@
+.r-fullview {
+    height: 100vh;
+    width: 100vh;
+}
+
+.r-maincontent-background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 90%;
+    background-image: url('../icons/HintergrundReg.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.r-maincontent_container {
+    position: relative;
+    top: 10%;
+    height: 80%;
+    width: 40%;
+    display: inline-block;
+    background-color: rgba(236, 236, 236, 0.8);
+    border-radius: 14px;
+    border-style: solid;
+    border-color: #000;
+}
+
+.r-header_container {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.r-header {
+    width: 80%;
+}
+
+.r-form_container {
+    height: 60%;
+    width: 100%;
+
+}
+
+.r-submit_container {
+    position: relative;
+    top: 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.r-AGBcheck_container {
+    height: 10%;
+    width: 100%;
+}
+
+.r-button_container {
+    position: absolute;
+    bottom: 0;
+    height: 10%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    margin-left: 15%;
+}

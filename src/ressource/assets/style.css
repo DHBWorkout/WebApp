@@ -50,6 +50,14 @@
     font-style: normal;
 }
 
+.aileron-regular-black-16px {
+    color: var(--black);
+    font-family: var(--font-family-aileron-regular);
+    font-size: var(--font-size-l);
+    font-weight: 500;
+    font-style: normal;
+}
+
 .aileron-bold-white-16px {
     color: var(--white);
     font-family: var(--font-family-aileron-bold);

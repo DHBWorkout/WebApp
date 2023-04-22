@@ -7,6 +7,13 @@
     src: url("https://fonts.animaapp.com/Aileron-Bold") format(truetype);
 }
 
+@font-face {
+    font-family: "Aileron-Regular";
+    font-style: normal;
+    font-weight: 500;
+    src: url("https://fonts.animaapp.com/Aileron-Regular") format(truetype);
+}
+
 .sidebar-background {
     height: 100vh;
     width: 20%;
