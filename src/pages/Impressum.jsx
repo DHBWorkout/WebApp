@@ -1,16 +1,13 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
-import PDFViewer from '../PDFViewer';
-import '../ressource/assets/pdfviewer.css'
+import PDFViewer from '../components/PDFViewerImpressum';
 
 export default function Impressum() {
     return (
         <div>
             <Sidebar />
-            <div className="pdfviewer">
-                <PDFViewer pdfUrl='./ressource/pdf/Impressum_de.pdf'/>
-            </div>
+                <PDFViewer/>
             <Footer />
         </div>
     )
