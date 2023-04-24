@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../ressource/assets/loginview.css'
 import Footer from '../components/Footer_long'
@@ -9,20 +9,44 @@ import '../ressource/assets/inputfield.css'
 export default function LoginView() {
 
     const navigate = useNavigate();
+    const [emailValue, setEmailValue] = useState('')
     const [emailSet, setEmailSet] = useState(false)
+    const [passwordValue, setPasswordValue] = useState('')
     const [passwordSet, setPasswordSet] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
+    useEffect(() => {
+        if (emailValue !== '') {
+            setEmailSet(true)
+        } else {
+            setEmailSet(false)
+        }
+        if (passwordValue !== '') {
+            setPasswordSet(true)
+        } else {
+            setPasswordSet(false)
+        }
+    }, [emailValue, passwordValue])
 
     const handleEmailChange = (event) => {
-        setEmailSet(true)
+        setEmailValue(event.target.value)
+        setErrorMessage('')
     }
 
     const handlePasswordChange = (event) => {
-        setPasswordSet(true)
+        setPasswordValue(event.target.value)
+        setErrorMessage('')
     }
 
     const handleLogin = (e) => {
         e.preventDefault()
-        if (emailSet && passwordSet) {
+        if (!emailSet && passwordSet) {
+            setErrorMessage('Bitte geben Sie Ihre E-Mail-Adresse ein')
+        } else if (emailSet && !passwordSet) {
+            setErrorMessage('Bitte geben Sie Ihr Passwort ein')
+        } else if (!emailSet && !passwordSet) {
+            setErrorMessage('Geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein')
+        } else {
             navigate('/home')
         }
     }
@@ -30,85 +54,88 @@ export default function LoginView() {
 
 
 
-    return (
-        <div className="fullview">
-            <div className="maincontent-background">
-                <div className="maincontent_container">
-                    <div className="header_container">
-                        <img src={Header} alt="dhbworkout header logo" className='header' />
-                    </div>
-                    <div className="mainicon__container-big">
-                        <img src={Logo} alt="dhbworkout logo" className='mainicon' />
-                    </div>
-                    <div className="form_container">
-                        <div className="submit_container">
-                            <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange}/>
-                            <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange}/>
+        return (
+            <div className="fullview">
+                <div className="maincontent-background">
+                    <div className="maincontent_container">
+                        <div className="header_container">
+                            <img src={Header} alt="dhbworkout header logo" className='header' />
                         </div>
-                        <div className="button_container">
-                            <Link to='/registration' className='loginbutton_container'>
-                                <Button buttonText='Registrieren' />
-                            </Link>
-                            <Link to='/home' className='loginbutton_container'>
-                                <Button buttonText='Anmelden' onClick={handleLogin}/>
-                            </Link>
+                        <div className="mainicon__container-big">
+                            <img src={Logo} alt="dhbworkout logo" className='mainicon' />
                         </div>
+
+                        <div className="form_container">
+                            <div className="submit_container">
+                                <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange} />
+                                <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange} />
+                            </div>
+                            {errorMessage && <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
+                            <div className="button_container">
+                                <Link to='/registration' className='loginbutton_container'>
+                                    <Button buttonText='Registrieren' />
+                                </Link>
+                                <Link to='/home' className='loginbutton_container'>
+                                    <Button buttonText='Anmelden' onClick={handleLogin} />
+                                </Link>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
 
-    )
+        )
 
-}
-
-
-function InputField({ placeholder, onChange }) {
-    const [inputValue, setInputValue] = useState('');
-
-    const handleChange = (event) => {
-        setInputValue(event.target.value);
-        onChange()
     }
 
-    return (
-        <div>
-            <input
-                id='input-field'
-                type='text'
-                value={inputValue}
-                onChange={handleChange}
-                placeholder={placeholder}
-            />
-        </div>
-    )
-}
 
-function PasswordInputField({ placeholder, onChange }) {
-    // const [inputValue, setInputValue] = useState('');    
-    const [displayValue, setDisplayValue] = useState('');
+    function InputField({ placeholder, onChange }) {
+        const [inputValue, setInputValue] = useState('');
 
-    const handleChange = (event) => {
-        setDisplayValue(event.target.value.replace(/./g, '*'));
-        onChange()
+        const handleChange = (event) => {
+            setInputValue(event.target.value);
+            onChange(event)
+        }
+
+        return (
+            <div>
+                <input
+                    id='input-field'
+                    type='text'
+                    value={inputValue}
+                    onChange={handleChange}
+                    placeholder={placeholder}
+                />
+            </div>
+        )
     }
 
-    return (
-        <div>
-            <input
-                id='input-field'
-                type='text'
-                value={displayValue}
-                onChange={handleChange}
-                placeholder={placeholder}
-            />
-        </div>
-    )
-}
+    function PasswordInputField({ placeholder, onChange }) {
+        // const [inputValue, setInputValue] = useState('');    
+        const [displayValue, setDisplayValue] = useState('');
 
-function Button({ buttonText, onClick}) {
-    return (
-        <button id='loginbutton' className='aileron-bold-white-16px' onClick={onClick}>{buttonText}</button>
-    )
-}
+        const handleChange = (event) => {
+            setDisplayValue(event.target.value.replace(/./g, '*'));
+            onChange(event)
+        }
+
+        return (
+            <div>
+                <input
+                    id='input-field'
+                    type='text'
+                    value={displayValue}
+                    onChange={handleChange}
+                    placeholder={placeholder}
+                />
+            </div>
+        )
+    }
+
+    function Button({ buttonText, onClick }) {
+        return (
+            <button id='loginbutton' className='aileron-bold-white-16px' onClick={onClick}>{buttonText}</button>
+        )
+    }
