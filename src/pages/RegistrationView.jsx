@@ -7,7 +7,17 @@ import '../ressource/assets/inputfield.css'
 
 export default function RegistrationView() {
 
+    const [emailSet, setEmailSet] = useState(false)
+    const [firstNameSet, setFirstNameSet] = useState(false)
+    const [nameSet, setNameSet] = useState(false)
+    const [passwordSet, setPasswordSet] = useState(false)
+    const [passwordCheckSet, setPasswordCheckSet] = useState(false)
     const [agbAccepted, setAgbAccepted] = useState(false);
+
+    const handleEmailChange = event => {
+        setEmailSet(true)
+    }
+
 
     const handleAgbChange = (event) => {
         setAgbAccepted(event.target.checked);
