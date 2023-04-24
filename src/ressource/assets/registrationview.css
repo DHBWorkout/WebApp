@@ -68,3 +68,8 @@
     gap: 10%;
     margin-left: 15%;
 }
+
+.r-loginbutton_container {
+    height: 60%;
+    width: 50%;
+}

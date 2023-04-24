@@ -6,15 +6,29 @@ import Header from '../ressource/icons/Titel3.png'
 import '../ressource/assets/inputfield.css'
 
 export default function RegistrationView() {
+
+    const [agbAccepted, setAgbAccepted] = useState(false);
+
+    const handleAgbChange = (event) => {
+        setAgbAccepted(event.target.checked);
+    };
+
+    const handleRegistration = () => {
+        if (!agbAccepted) {
+            alert('Bitte akzeptieren Sie unsere AGBs');
+            return;
+        }
+
+        // TODO: handle registration logic
+    };
+
     return (
         <div className="r-fullview">
             <div className="r-maincontent-background">
-
                 <div className="r-maincontent_container">
                     <div className="r-header_container">
                         <img src={Header} alt="dhbworkout header logo" className='r-header' />
                     </div>
-
                     <div className="r-form_container">
                         <div className="r-submit_container">
                             <InputField placeholder='E-Mail-Adresse' />
@@ -25,24 +39,17 @@ export default function RegistrationView() {
                         </div>
                     </div>
                     <div className='r-AGBcheck_container'>
-                        <Checkbox />
-
+                        <Checkbox checked={agbAccepted} onChange={handleAgbChange} />
                     </div>
                     <div className="r-button_container">
-                        <Button buttonText='Zurück' />
-                        <Button buttonText='Registrieren' />
-
+                        <Link to='/login' className='r-loginbutton_container'>
+                            <Button buttonText='Zurück' />
+                        </Link>
+                        <Link to='/home' className='r-loginbutton_container'>
+                            <Button buttonText='Registrieren' onClick={handleRegistration} />
+                        </Link>
                     </div>
                 </div>
-
-                <div className="test">
-                    <Link to='/home'>
-                        <Button buttonText='Skip to homepage' />
-                    </Link>
-                </div>
-
-
-
             </div>
             <Footer />
         </div>
@@ -51,10 +58,10 @@ export default function RegistrationView() {
 
 }
 
-function Checkbox() {
+function Checkbox({ checked, onChange }) {
     return (
         <label className='aileron-regular-black-16px'>
-            <input type='checkbox' />
+            <input type='checkbox' checked={checked} onChange={onChange} />
             Ich akzeptiere die allgemeinen Geschäftsbedingungen
         </label>
     )
@@ -103,8 +110,8 @@ function PasswordInputField({ placeholder }) {
     )
 }
 
-function Button({ buttonText }) {
+function Button({ buttonText, onClick }) {
     return (
-        <button id='button' className='aileron-bold-white-16px'>{buttonText}</button>
+        <button id='button' className='aileron-bold-white-16px' onClick={onClick}>{buttonText}</button>
     )
 }
