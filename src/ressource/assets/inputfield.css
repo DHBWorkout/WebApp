@@ -8,6 +8,12 @@
 
 #button {
     background-color: var(--dark-red);
-    height: 30%;
-    width: 30%;
+    height: 100%;
+    width: 100%;
+}
+
+#loginbutton {
+    background-color: var(--dark-red);
+    height: 100%;
+    width: 100%;
 }

@@ -10,37 +10,28 @@ export default function LoginView() {
     return (
         <div className="fullview">
             <div className="maincontent-background">
-
                 <div className="maincontent_container">
-
                     <div className="header_container">
                         <img src={Header} alt="dhbworkout header logo" className='header' />
                     </div>
                     <div className="mainicon__container-big">
                         <img src={Logo} alt="dhbworkout logo" className='mainicon' />
                     </div>
-
                     <div className="form_container">
                         <div className="submit_container">
                             <InputField placeholder='E-Mail-Adresse' />
                             <PasswordInputField placeholder='Passwort' />
                         </div>
                         <div className="button_container">
-                            <Button buttonText='Registrieren' />
-                            <Button buttonText='Anmelden' />
-
+                            <Link to='/registration' className='loginbutton_container'>
+                                <Button buttonText='Registrieren' />
+                            </Link>
+                            <Link to='/home' className='loginbutton_container'>
+                                <Button buttonText='Anmelden' />
+                            </Link>
                         </div>
                     </div>
                 </div>
-
-                <div className="test">
-                <Link to='/home'>
-                    <Button buttonText='Skip to homepage' />
-                </Link>
-                </div>
-                
-
-
             </div>
             <Footer />
         </div>
@@ -94,6 +85,6 @@ function PasswordInputField({ placeholder }) {
 
 function Button({ buttonText }) {
     return (
-        <button id='button' className='aileron-bold-white-16px'>{buttonText}</button>
+        <button id='loginbutton' className='aileron-bold-white-16px'>{buttonText}</button>
     )
 }

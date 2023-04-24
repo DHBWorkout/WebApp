@@ -8,6 +8,7 @@ import Datenschutzerklaerung from './pages/Datenschutzerklaerung'
 import AGBs from './pages/AGBs'
 
 import LoginView from './pages/LoginView'
+import RegistrationView from './pages/RegistrationView'
 
 
 
@@ -20,6 +21,7 @@ export default function Router() {
                 <Route path='home' element={<Home />} />
 
                 <Route path='login' element={<LoginView />} />
+                <Route path='registration' element={<RegistrationView />} />
 
                 <Route path='pdf'>
                     <Route path='kontakt' element={<Kontakt />} />
