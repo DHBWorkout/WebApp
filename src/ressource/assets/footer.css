@@ -52,6 +52,12 @@
 }
 
 .footer-label {
+    text-decoration: none;
+    color: inherit;
     padding: 2.2vh 0;
     text-align: center;
+}
+
+.footer {
+    text-decoration: none;
 }

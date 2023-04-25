@@ -8,33 +8,33 @@ export default function Footer() {
             <div className="footer-button__container">
 
                 <div className="footer-button">
-                    <Link to='/pdf/kontakt'>
+                    <Link to='/pdf/kontakt' className='footer'>
                         <div className="footer-label">
-                            <p className="aileron-bold-white-12px">Kontakt</p>
+                            <p className="aileron-bold-white-16px">Kontakt</p>
                         </div>
                     </Link>
                 </div>
 
                 <div className="footer-button">
-                    <Link to='/pdf/impressum'>
+                    <Link to='/pdf/impressum' className='footer'>
                         <div className="footer-label">
-                            <p className="footer-text aileron-bold-white-12px">Impressum</p>
+                            <p className="footer-text aileron-bold-white-16px">Impressum</p>
                         </div>
                     </Link>
                 </div>
 
                 <div className="footer-button">
-                    <Link to='/pdf/datenschutzerklaerung'>
+                    <Link to='/pdf/datenschutzerklaerung' className='footer'>
                         <div className="footer-label">
-                            <p className="aileron-bold-white-12px">Datenschutzerklärung</p>
+                            <p className="aileron-bold-white-16px">Datenschutzerklärung</p>
                         </div>
                     </Link>
                 </div>
 
                 <div className="footer-button">
-                    <Link to='/pdf/agb'>
+                    <Link to='/pdf/agb' className='footer'>
                         <div className="footer-label">
-                            <p className="aileron-bold-white-12px">AGBs</p>
+                            <p className="footer aileron-bold-white-16px">AGBs</p>
                         </div>
                     </Link>
                 </div>
