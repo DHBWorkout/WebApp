@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../ressource/assets/registrationview.css'
-import Footer from '../components/Footer_long'
+import Footer from '../components/r_Footer_long'
 import Header from '../ressource/icons/Titel3.png'
 import '../ressource/assets/inputfield.css'
 
