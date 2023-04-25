@@ -101,3 +101,26 @@
     top: 92.5%;
     width: 100%;
 }
+
+.login-sidebar {
+    background-color: var(--dark-red);
+    height: 90%;
+    width: 20%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_container {
+    width: 50%;
+    height: 15%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    height: 100%;
+    width: 100%;
+    transform: rotate(180deg)
+}

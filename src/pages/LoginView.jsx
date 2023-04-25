@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../ressource/assets/loginview.css'
-import Footer from '../components/Footer_long'
+import Footer from '../components/l_Footer_long'
 import Logo from '../ressource/icons/logo.png'
 import Header from '../ressource/icons/Titel3.png'
 import '../ressource/assets/inputfield.css'
@@ -34,8 +34,10 @@ export default function LoginView() {
         e.preventDefault()
         if (!emailSet && passwordSet) {
             setErrorMessage('Bitte geben Sie Ihre E-Mail-Adresse ein')
+        } else if (emailSet && isValidEmail(emailValue) && !passwordSet) {
+            setErrorMessage('Bitte geben Sie Ihr Passwort ein')
         } else if (emailSet && !isValidEmail(emailValue) && !passwordSet) {
-            setErrorMessage('Bitte geben Sie eine gültige E-Mail-Adresse UND Ihr Passwort ein')
+            setErrorMessage('Bitte geben Sie eine gültige E-Mail-Adresse und Ihr Passwort ein')
         } else if (!emailSet && !passwordSet) {
             setErrorMessage('Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein')
         } else if (emailSet && passwordSet && !isValidEmail(emailValue)) {
@@ -115,7 +117,7 @@ function PasswordInputField({ placeholder, onChange }) {
     }
 
     return (
-        <div className="inputField_container"> 
+        <div className="inputField_container">
             <input
                 id='input-field'
                 type='text'
