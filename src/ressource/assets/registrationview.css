@@ -39,18 +39,30 @@
 }
 
 .r-form_container {
-    height: 60%;
+    height: 50%;
     width: 100%;
 
 }
 
 .r-submit_container {
     position: relative;
-    top: 5%;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 5%;
+}
+
+
+.r-error-message_container {
+    width: 100%;
+    height: 5%;
+    position: relative;
+}
+.r-error-message {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .r-AGBcheck_container {
@@ -61,7 +73,7 @@
 .r-button_container {
     position: absolute;
     bottom: 0;
-    height: 10%;
+    height: 15%;
     width: 70%;
     display: flex;
     flex-direction: row;
@@ -70,6 +82,6 @@
 }
 
 .r-loginbutton_container {
-    height: 60%;
+    height: 40%;
     width: 50%;
 }

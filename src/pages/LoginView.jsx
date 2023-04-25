@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../ressource/assets/loginview.css'
 import Footer from '../components/Footer_long'
 import Logo from '../ressource/icons/logo.png'
@@ -7,6 +7,47 @@ import Header from '../ressource/icons/Titel3.png'
 import '../ressource/assets/inputfield.css'
 
 export default function LoginView() {
+
+    const navigate = useNavigate();
+    const [emailSet, setEmailSet] = useState(false)
+    const [emailValue, setEmailValue] = useState('')
+    const [passwordSet, setPasswordSet] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const isValidEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase())
+    }
+
+    const handleEmailChange = (event) => {
+        setEmailValue(event.target.value)
+        setEmailSet(event.target.value)
+
+    }
+
+    const handlePasswordChange = (event) => {
+        setPasswordSet(event.target.value)
+        setErrorMessage('')
+    }
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+        if (!emailSet && passwordSet) {
+            setErrorMessage('Bitte geben Sie Ihre E-Mail-Adresse ein')
+        } else if (emailSet && !isValidEmail(emailValue) && !passwordSet) {
+            setErrorMessage('Bitte geben Sie eine gültige E-Mail-Adresse UND Ihr Passwort ein')
+        } else if (!emailSet && !passwordSet) {
+            setErrorMessage('Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein')
+        } else if (emailSet && passwordSet && !isValidEmail(emailValue)) {
+            setErrorMessage('Bitte geben Sie eine gültige E-Mail-Adresse ein')
+        } else {
+            navigate('/home')
+        }
+    }
+
+
+
+
     return (
         <div className="fullview">
             <div className="maincontent-background">
@@ -17,20 +58,23 @@ export default function LoginView() {
                     <div className="mainicon__container-big">
                         <img src={Logo} alt="dhbworkout logo" className='mainicon' />
                     </div>
+
                     <div className="form_container">
                         <div className="submit_container">
-                            <InputField placeholder='E-Mail-Adresse' />
-                            <PasswordInputField placeholder='Passwort' />
+                            <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange} />
+                            <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange} />
                         </div>
+                        {errorMessage && <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
                         <div className="button_container">
                             <Link to='/registration' className='loginbutton_container'>
                                 <Button buttonText='Registrieren' />
                             </Link>
                             <Link to='/home' className='loginbutton_container'>
-                                <Button buttonText='Anmelden' />
+                                <Button buttonText='Anmelden' onClick={handleLogin} />
                             </Link>
                         </div>
                     </div>
+
                 </div>
             </div>
             <Footer />
@@ -40,12 +84,12 @@ export default function LoginView() {
 
 }
 
-
-function InputField({ placeholder }) {
+function InputField({ placeholder, onChange }) {
     const [inputValue, setInputValue] = useState('');
 
     const handleChange = (event) => {
         setInputValue(event.target.value);
+        onChange(event)
     }
 
     return (
@@ -61,13 +105,13 @@ function InputField({ placeholder }) {
     )
 }
 
-function PasswordInputField({ placeholder }) {
+function PasswordInputField({ placeholder, onChange }) {
     // const [inputValue, setInputValue] = useState('');    
     const [displayValue, setDisplayValue] = useState('');
 
     const handleChange = (event) => {
         setDisplayValue(event.target.value.replace(/./g, '*'));
-        //hier sollte noch der InputValue gespeichert werden
+        onChange(event)
     }
 
     return (
@@ -83,8 +127,8 @@ function PasswordInputField({ placeholder }) {
     )
 }
 
-function Button({ buttonText }) {
+function Button({ buttonText, onClick }) {
     return (
-        <button id='loginbutton' className='aileron-bold-white-16px'>{buttonText}</button>
+        <button id='loginbutton' className='aileron-bold-white-16px' onClick={onClick}>{buttonText}</button>
     )
 }
