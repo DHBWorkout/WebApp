@@ -93,7 +93,7 @@ function InputField({ placeholder, onChange }) {
     }
 
     return (
-        <div>
+        <div className="inputField_container">
             <input
                 id='input-field'
                 type='text'
@@ -115,7 +115,7 @@ function PasswordInputField({ placeholder, onChange }) {
     }
 
     return (
-        <div>
+        <div className="inputField_container"> 
             <input
                 id='input-field'
                 type='text'
