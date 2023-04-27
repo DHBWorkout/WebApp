@@ -28,9 +28,8 @@
 
 .footer-background-long {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 10vh;
+    top: 90%;
+    height: 10%;
     width: 100%;
     background-color: var(--chestnut);
 }
@@ -41,10 +40,12 @@
     display: flex;
     flex-direction: row;
 }
-
 .footer-button {
-    height: 10vh;
+    height: auto;
     width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-button:hover {
@@ -52,10 +53,7 @@
 }
 
 .footer-label {
-    text-decoration: none;
-    color: inherit;
-    padding: 2.2vh 0;
-    text-align: center;
+    
 }
 
 .footer {
