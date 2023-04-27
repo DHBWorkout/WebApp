@@ -46,16 +46,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 .footer-button:hover {
     background-color: #883938;
-}
-
-.footer-label {
-    
-}
-
-.footer {
-    text-decoration: none;
 }

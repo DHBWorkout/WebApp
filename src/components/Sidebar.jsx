@@ -26,16 +26,14 @@ export default function Sidebar() {
 
             <div className="sidebar-menu">
 
-                <div className="sidebar-button">
-                    <Link to='/home'>
-                        <div className="sidebar-icon__container">
-                            <img src={HomeIcon} alt="home icon" className="sidebar-icon" />
-                        </div>
-                        <div className="sidebar-string">
-                            <span className='aileron-bold-white-18px'>Home</span>
-                        </div>
-                    </Link>
-                </div>
+                <Link to='/home' className="sidebar-button">
+                    <div className="sidebar-icon__container">
+                        <img src={HomeIcon} alt="home icon" className="sidebar-icon" />
+                    </div>
+                    <div className="sidebar-string">
+                        <span className='aileron-bold-white-18px'>Home</span>
+                    </div>
+                </Link>
 
 
 
@@ -84,16 +82,14 @@ export default function Sidebar() {
                     </div>
                 </div>
 
-                <div className="sidebar-button">
-                    <Link to='/login'>
-                        <div className="sidebar-icon__container">
-                            <img src={LogoutIcon} alt="logout icon" className="sidebar-icon" />
-                        </div>
-                        <div className="sidebar-string">
-                            <span className='aileron-bold-white-18px'>Logout</span>
-                        </div>
-                    </Link>
-                </div>
+                <Link to='/login' className="sidebar-button">
+                    <div className="sidebar-icon__container">
+                        <img src={LogoutIcon} alt="logout icon" className="sidebar-icon" />
+                    </div>
+                    <div className="sidebar-string">
+                        <span className='aileron-bold-white-18px'>Logout</span>
+                    </div>
+                </Link>
 
             </div>
         </div>
