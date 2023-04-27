@@ -11,7 +11,9 @@ export default function RegistrationView() {
     const [emailSet, setEmailSet] = useState(false)
     const [emailValue, setEmailValue] = useState('')
     const [firstNameSet, setFirstNameSet] = useState(false)
+    const [firstNameValue, setFirstNameValue] = useState('')
     const [nameSet, setNameSet] = useState(false)
+    const [nameValue, setNameValue] = useState('')
     const [passwordSet, setPasswordSet] = useState(false)
     const [passwordValue, setPasswordValue] = useState('')
     const [passwordCheckSet, setPasswordCheckSet] = useState(false)
@@ -32,11 +34,13 @@ export default function RegistrationView() {
     }
 
     const handleFirstNameChange = event => {
+        setFirstNameValue(event.target.value)
         setFirstNameSet(event.target.value)
         setErrorMessage('')
     }
 
     const handleNameChange = event => {
+        setNameValue(event.target.value)
         setNameSet(event.target.value)
         setErrorMessage('')
     }
@@ -62,7 +66,11 @@ export default function RegistrationView() {
         e.preventDefault()
         if (emailSet && firstNameSet && nameSet && passwordSet && passwordCheckSet && agbAccepted && (passwordCheckValue === passwordValue) && isValidEmail(emailValue)) {
             setErrorMessage('')
-            navigate('/home')
+                     
+            sendDataToAPI(emailValue, firstNameValue, nameValue, passwordValue)
+
+
+            //navigate('/home')
         } else if ((passwordCheckValue !== passwordValue) && isValidEmail(emailValue)) {
             setErrorMessage('Die Passwörter müssen miteinander übereinstimmen')
         } else if ((passwordCheckValue !== passwordValue) && !isValidEmail(emailValue)) {
@@ -73,6 +81,38 @@ export default function RegistrationView() {
             setErrorMessage('Bitte füllen Sie alle Felder aus')
         }
     };
+
+    const sendDataToAPI = async (event) => {
+        var obj = {
+            "Prename": firstNameValue,
+            "Surname": nameValue,
+            "Email": emailValue,
+            "Password": passwordValue
+        }
+
+        try {
+          const response = await fetch('https://api.dhbworkout.de/v1/register', {
+            mode: 'no-cors',
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+          });
+
+          if (response.ok) {
+            setErrorMessage('Connection established')
+            navigate('/home')
+        } else {
+            setErrorMessage('Diese E-Mail ist bereits vergeben')
+        }
+        //   const data = await response.json()
+        //   console.log(data)
+        } catch (error) {
+          console.error(error);
+          setErrorMessage('An error occurred while sending data to the server.')
+        }
+      };
 
     return (
         <div className="r-fullview">
@@ -112,6 +152,7 @@ export default function RegistrationView() {
     )
 
 }
+
 
 function Checkbox({ checked, onChange }) {
     return (
