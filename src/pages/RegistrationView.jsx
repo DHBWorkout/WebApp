@@ -137,12 +137,22 @@ export default function RegistrationView() {
                         {errorMessage && <div className='aileron-bold-dark-red-16px r-error-message'>{errorMessage}</div>}
                     </div>
                     <div className="r-button_container">
-                        <Link to='/login' className='r-loginbutton_container'>
+                        <div className="container-fluid">
+                            <div className="row">
+                            <div className="col-md-2"></div>
+                            <div className="col-md-4 r-loginbutton_container">
+                        <Link to='/login'>
                             <Button buttonText='Zurück' />
                         </Link>
-                        <Link to='/home' className='r-loginbutton_container'>
+                            </div>
+                            <div className="col-md-4 r-loginbutton_container">
+                        <Link to='/home'>
                             <Button buttonText='Registrieren' onClick={handleRegistration} />
                         </Link>
+                            </div>
+                            <div className="col-md-2"></div>
+                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
