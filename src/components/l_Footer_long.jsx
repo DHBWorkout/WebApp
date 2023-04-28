@@ -7,37 +7,35 @@ export default function Footer() {
         <div className="footer-background-long">
             <div className="footer-button__container">
 
-                <div className="footer-button">
-                    <Link to='/pdf/login/kontakt' className='footer'>
+                <Link to='/pdf/login/kontakt' className='footer-button'>
+                    <div className="footer">
                         <div className="footer-label">
                             <p className="aileron-bold-white-16px">Kontakt</p>
                         </div>
-                    </Link>
-                </div>
-
-                <div className="footer-button">
-                    <Link to='/pdf/login/impressum' className='footer'>
+                    </div>
+                </Link>
+                <Link to='/pdf/login/impressum' className='footer-button'>
+                    <div className="footer">
                         <div className="footer-label">
-                            <p className="footer-text aileron-bold-white-16px">Impressum</p>
+                            <p className="aileron-bold-white-16px">Impressum</p>
                         </div>
-                    </Link>
-                </div>
-
-                <div className="footer-button">
-                    <Link to='/pdf/login/datenschutzerklaerung' className='footer'>
+                    </div>
+                </Link>
+                <Link to='/pdf/login/datenschutzerklaerung' className='footer-button'>
+                    <div className="footer">
                         <div className="footer-label">
                             <p className="aileron-bold-white-16px">Datenschutzerklärung</p>
                         </div>
-                    </Link>
-                </div>
-
-                <div className="footer-button">
-                    <Link to='/pdf/login/agb' className='footer'>
+                    </div>
+                </Link>
+                <Link to='/pdf/login/agb' className='footer-button'>
+                    <div className="footer">
                         <div className="footer-label">
                             <p className="aileron-bold-white-16px">AGBs</p>
                         </div>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
+                
             </div>
         </div>
     );

@@ -12,6 +12,7 @@ export default function LoginView() {
     const [emailSet, setEmailSet] = useState(false)
     const [emailValue, setEmailValue] = useState('')
     const [passwordSet, setPasswordSet] = useState(false)
+    const [passwordValue, setPasswordValue] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
 
     const isValidEmail = (email) => {
@@ -26,6 +27,7 @@ export default function LoginView() {
     }
 
     const handlePasswordChange = (event) => {
+        setPasswordValue(event.target.value)
         setPasswordSet(event.target.value)
         setErrorMessage('')
     }
@@ -43,6 +45,7 @@ export default function LoginView() {
         } else if (emailSet && passwordSet && !isValidEmail(emailValue)) {
             setErrorMessage('Bitte geben Sie eine gültige E-Mail-Adresse ein')
         } else {
+            sendDataToAPI(emailValue, passwordValue)
             navigate('/home')
         }
     }
@@ -66,7 +69,9 @@ export default function LoginView() {
                             <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange} />
                             <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange} />
                         </div>
-                        {errorMessage && <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
+                        <div className="error-message_container">
+                            {errorMessage && <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
+                        </div>
                         <div className="button_container">
                             <Link to='/registration' className='loginbutton_container'>
                                 <Button buttonText='Registrieren' />
@@ -83,6 +88,10 @@ export default function LoginView() {
         </div>
 
     )
+
+}
+
+function sendDataToAPI(email, password) {
 
 }
 
