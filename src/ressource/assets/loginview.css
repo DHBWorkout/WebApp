@@ -115,8 +115,10 @@
     height: 90%;
     width: 20%;
     display:flex;
+    flex-direction:column ;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 .icon_container {
@@ -125,12 +127,31 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    rotate: 180deg;
-    : white;
+
 }
 
 .arrow {
     height: 100%;
     width: 100%;
-    transform: rotate(180deg)
+
+}
+
+.logo {
+    width: 200px;
+    height: 160px;
+    display:flex;
+    margin-bottom: 400px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.zurucktxt{
+    font-size: 32px;
+    color: white;
+    margin-top: 400px;
+    text-decoration: none;
+    border-bottom: none;
+    text-decoration-color: white;
+    outline: none;
+
 }
