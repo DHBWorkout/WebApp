@@ -54,8 +54,6 @@ export default function LoginView() {
             Email: emailValue,
             Password: passwordValue
         }
-
-        try {
             const response = await fetch('https://api.dhbworkout.de/v1/login', {
                 method: 'POST',
                 headers: {
@@ -66,17 +64,12 @@ export default function LoginView() {
 
             if (response.ok) {
                 setErrorMessage('Connection established')
-                //document.cookie = "token=" + await response.headerValue("token")
+                document.cookie = "token=" + (await response.json()).Response.Token;
                 navigate('/home')
-            } else {
-                setErrorMessage(await response.headerValue("Reason"));
             }
-               const data = await response.json()
-               console.log(data)
-        } catch (error) {
-            console.error(error);
-            setErrorMessage("Du penner")
-        }
+            var error = await response.text();
+            error = JSON.parse(error)
+            setErrorMessage(error.Error.Reason);
     };
 
 
