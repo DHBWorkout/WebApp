@@ -55,14 +55,17 @@ export default function Sidebar() {
                     </div>
                 </div>
 
-                <div className="sidebar-button">
+
+
+
+                <Link to='/calculator' className="sidebar-button">
                     <div className="sidebar-icon__container">
                         <img src={RechnerIcon} alt="rechner icon" className="sidebar-icon" />
                     </div>
                     <div className="sidebar-string">
                         <span className='aileron-bold-white-18px'>BMI-Rechner</span>
                     </div>
-                </div>
+                </Link>
 
                 <div className="sidebar-button">
                     <div className="sidebar-icon__container">
