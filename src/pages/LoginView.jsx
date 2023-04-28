@@ -46,9 +46,38 @@ export default function LoginView() {
             setErrorMessage('Bitte geben Sie eine gültige E-Mail-Adresse ein')
         } else {
             sendDataToAPI(emailValue, passwordValue)
-            navigate('/home')
         }
     }
+
+    const sendDataToAPI = async (event) => {
+        var obj = {
+            Email: emailValue,
+            Password: passwordValue
+        }
+
+        try {
+            const response = await fetch('https://api.dhbworkout.de/v1/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj),
+            });
+
+            if (response.ok) {
+                setErrorMessage('Connection established')
+                //document.cookie = "token=" + await response.headerValue("token")
+                navigate('/home')
+            } else {
+                setErrorMessage(await response.headerValue("Reason"));
+            }
+               const data = await response.json()
+               console.log(data)
+        } catch (error) {
+            console.error(error);
+            setErrorMessage("Du penner")
+        }
+    };
 
 
 
@@ -101,10 +130,6 @@ export default function LoginView() {
 
 }
 
-function sendDataToAPI(email, password) {
-
-}
-
 function InputField({ placeholder, onChange }) {
     const [inputValue, setInputValue] = useState('');
 
@@ -131,7 +156,7 @@ function PasswordInputField({ placeholder, onChange }) {
     const [displayValue, setDisplayValue] = useState('');
 
     const handleChange = (event) => {
-        setDisplayValue(event.target.value.replace(/./g, '*'));
+        setDisplayValue(event.target.value);
         onChange(event)
     }
 
@@ -139,7 +164,7 @@ function PasswordInputField({ placeholder, onChange }) {
         <div className="inputField_container">
             <input
                 id='input-field'
-                type='text'
+                type='password'
                 value={displayValue}
                 onChange={handleChange}
                 placeholder={placeholder}
