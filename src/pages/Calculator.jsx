@@ -7,6 +7,7 @@ export default function Home() {
         <div>
             <Sidebar />
             <h1>BMI-Calculator</h1>
+            <p>test</p> 
             <Footer />
         </div>
     )
