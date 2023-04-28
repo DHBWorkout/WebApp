@@ -5,13 +5,14 @@ import PDFViewer from '../../components/PDFViewerKontakt'
 import '../../ressource/assets/loginview.css'
 
 import Arrow from '../../ressource/icons/arrow-right-line.png'
+import zuruck from "../../ressource/icons/zuruck-button.png";
 
 export default function KontaktLogin() {
     return (
         <div className='fullview'>
             <Link to='/login' className='login-sidebar'>
                 <div className="icon_container">
-                    <img src={Arrow} alt="back arrow" className='arrow' />
+                    <img src={zuruck} alt="back arrow" className='arrow' />
                 </div>
             </Link>
             <PDFViewer />
