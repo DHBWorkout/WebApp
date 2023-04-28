@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 import '../ressource/assets/loginview.css'
 import Footer from '../components/l_Footer_long'
 import Logo from '../ressource/icons/logo.png'
@@ -49,30 +49,27 @@ export default function LoginView() {
         }
     }
 
-    const sendDataToAPI = async (event) => {
+    const sendDataToAPI = async () => {
         var obj = {
             Email: emailValue,
             Password: passwordValue
         }
-            const response = await fetch('https://api.dhbworkout.de/v1/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(obj),
-            });
+        const response = await fetch('https://api.dhbworkout.de/v1/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj),
+        });
 
-            if (response.ok) {
-                setErrorMessage('Connection established')
-                document.cookie = "token=" + (await response.json()).Response.Token;
-                navigate('/home')
-            }
-            var error = await response.text();
-            error = JSON.parse(error)
-            setErrorMessage(error.Error.Reason);
+        if (response.ok) {
+            setErrorMessage('Connection established')
+            document.cookie = "token=" + (await response.json()).Response.Token;
+            navigate('/home')
+        }
+        var error = await response.json();
+        setErrorMessage(error.Error.Reason);
     };
-
-
 
 
     return (
@@ -80,19 +77,20 @@ export default function LoginView() {
             <div className="maincontent-background">
                 <div className="maincontent_container">
                     <div className="header_container">
-                        <img src={Header} alt="dhbworkout header logo" className='header' />
+                        <img src={Header} alt="dhbworkout header logo" className='header'/>
                     </div>
                     <div className="mainicon__container-big">
-                        <img src={Logo} alt="dhbworkout logo" className='mainicon' />
+                        <img src={Logo} alt="dhbworkout logo" className='mainicon'/>
                     </div>
 
                     <div className="form_container">
                         <div className="submit_container">
-                            <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange} />
-                            <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange} />
+                            <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange}/>
+                            <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange}/>
                         </div>
                         <div className="error-message_container">
-                            {errorMessage && <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
+                            {errorMessage &&
+                                <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
                         </div>
                         <div className="button_container">
                             <div className="container-fluid">
@@ -116,14 +114,14 @@ export default function LoginView() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
 
     )
 
 }
 
-function InputField({ placeholder, onChange }) {
+function InputField({placeholder, onChange}) {
     const [inputValue, setInputValue] = useState('');
 
     const handleChange = (event) => {
@@ -144,7 +142,7 @@ function InputField({ placeholder, onChange }) {
     )
 }
 
-function PasswordInputField({ placeholder, onChange }) {
+function PasswordInputField({placeholder, onChange}) {
     // const [inputValue, setInputValue] = useState('');    
     const [displayValue, setDisplayValue] = useState('');
 
@@ -166,7 +164,7 @@ function PasswordInputField({ placeholder, onChange }) {
     )
 }
 
-function Button({ buttonText, onClick }) {
+function Button({buttonText, onClick}) {
     return (
         <button id='loginbutton' className='aileron-bold-white-16px' onClick={onClick}>{buttonText}</button>
     )
