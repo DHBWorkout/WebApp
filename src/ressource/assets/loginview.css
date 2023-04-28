@@ -76,16 +76,10 @@
 .button_container {
     position: absolute;
     bottom: 0;
-    height: 35%;
+    height: auto;
     width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 10%;
-    margin-left: 15%;
+    margin-bottom: 10%;
 }
-
-
 
 .error-message_container {
     width: 100%;
@@ -98,11 +92,10 @@
 }
 
 .loginbutton_container {
-    height: 30%;
-    width: 30%;
+    height: 4vh;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
 }
-
-
 
 .test {
     position: absolute;

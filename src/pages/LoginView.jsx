@@ -73,15 +73,25 @@ export default function LoginView() {
                             {errorMessage && <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
                         </div>
                         <div className="button_container">
-                            <Link to='/registration' className='loginbutton_container'>
-                                <Button buttonText='Registrieren' />
-                            </Link>
-                            <Link to='/home' className='loginbutton_container'>
-                                <Button buttonText='Anmelden' onClick={handleLogin} />
-                            </Link>
+                            <div className="container-fluid">
+                                <div className="row">
+                                    <div className="col-md-2"></div>
+                                    <div className="col-md-4 loginbutton_container">
+                                        <Link to='/registration'>
+                                            <Button buttonText='Registrieren'/>
+                                        </Link>
+                                    </div>
+                                    <div className="col-md-4 loginbutton_container">
+                                        <Link to='/home'>
+                                            <Button buttonText='Anmelden' onClick={handleLogin}/>
+                                        </Link>
+                                    </div>
+                                    <div className="col-md-2"></div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
             <Footer />
