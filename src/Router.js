@@ -20,6 +20,8 @@ import ImpressumRegistration from './pages/PDFsRegistration/ImpressumRegistratio
 import DatenschutzerklaerungRegistration from './pages/PDFsRegistration/DatenschutzerklaerungRegistration'
 import AGBsRegistration from './pages/PDFsRegistration/AGBsRegistration'
 
+import Calculator from './pages/Calculator'
+
 
 export default function Router() {
     return (
@@ -29,7 +31,14 @@ export default function Router() {
 
                 <Route path='home' element={<Home />} >
 
+
                 </Route>
+
+                <Route path='calculator' element={<Calculator/>}/>
+
+                
+
+
 
                 <Route path='login' element={<LoginView />} />
 

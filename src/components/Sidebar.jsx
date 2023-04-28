@@ -63,7 +63,7 @@ export default function Sidebar() {
                         <img src={RechnerIcon} alt="rechner icon" className="sidebar-icon" />
                     </div>
                     <div className="sidebar-string">
-                        <span className='aileron-bold-white-18px'>Home</span>
+                        <span className='aileron-bold-white-18px'>BMI-Rechner</span>
                     </div>
                 </Link>
 
