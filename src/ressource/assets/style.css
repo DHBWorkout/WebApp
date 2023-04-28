@@ -105,3 +105,11 @@
     font-weight: 700;
     font-style: normal;
 }
+
+.aileron-bold-white-24px {
+    color: var(--white);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    font-style: normal;
+}

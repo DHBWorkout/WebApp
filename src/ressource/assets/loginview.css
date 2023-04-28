@@ -115,20 +115,36 @@
     height: 90%;
     width: 20%;
     display:flex;
+    flex-direction: column;
+    gap: 10%;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 .icon_container {
     width: 30%;
-    height: 9%;
+    height: 9.77%;
     display:flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .arrow {
     height: 100%;
     width: 100%;
     transform: rotate(180deg)
+}
+
+.l-mainicon_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.l-mainicon {
+    width: 80%;
 }
