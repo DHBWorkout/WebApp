@@ -45,6 +45,7 @@ export default function LoginView() {
         } else if (emailSet && passwordSet && !isValidEmail(emailValue)) {
             setErrorMessage('Bitte geben Sie eine gültige E-Mail-Adresse ein')
         } else {
+            setErrorMessage("Loading...")
             sendDataToAPI(emailValue, passwordValue)
         }
     }
