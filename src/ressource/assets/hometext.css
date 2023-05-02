@@ -11,9 +11,10 @@
     position: relative;
     top: 11.11%;
     left: 12.5%;
-    height: 70vh;
+    height: 88%;
     width: 75%;
-    
+    scroll-behavior: auto;
+    overflow: auto;
 }
 
 .text-header {
