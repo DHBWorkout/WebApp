@@ -7,6 +7,12 @@
     src: url("https://fonts.animaapp.com/Aileron-Bold") format(truetype);
 }
 
+@media (max-width: 1000px) {
+    .sidebar-string {
+        display: none;
+    }
+}
+
 .sidebar-background {
     height: 100vh;
     width: 20%;

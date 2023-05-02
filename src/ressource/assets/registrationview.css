@@ -77,8 +77,9 @@
 .r-button_container {
     position: absolute;
     bottom: 0;
+    right: 10%;
     height: auto;
-    width: 100%;
+    width: 80%;
     margin-bottom: 10%;
 }
 
