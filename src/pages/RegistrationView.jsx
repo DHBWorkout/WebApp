@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 import '../ressource/assets/registrationview.css'
 import Footer from '../components/r_Footer_long'
 import Header from '../ressource/icons/Titel3.png'
@@ -66,7 +66,7 @@ export default function RegistrationView() {
         e.preventDefault()
         if (emailSet && firstNameSet && nameSet && passwordSet && passwordCheckSet && agbAccepted && (passwordCheckValue === passwordValue) && isValidEmail(emailValue)) {
             setErrorMessage('')
-                     
+
             sendDataToAPI(emailValue, firstNameValue, nameValue, passwordValue)
 
 
@@ -91,72 +91,104 @@ export default function RegistrationView() {
         }
 
         try {
-          const response = await fetch('https://api.dhbworkout.de/v1/register', {
-            mode: 'no-cors',
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-          });
+            const response = await fetch('https://api.dhbworkout.de/v1/register', {
+                mode: 'no-cors',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            });
 
-          if (response.ok) {
-            setErrorMessage('Connection established')
-            navigate('/home')
-        } else {
-            setErrorMessage('Diese E-Mail ist bereits vergeben')
-        }
-        //   const data = await response.json()
-        //   console.log(data)
+            if (response.ok) {
+                setErrorMessage('Connection established')
+                navigate('/home')
+            } else {
+                setErrorMessage('Diese E-Mail ist bereits vergeben')
+            }
+            //   const data = await response.json()
+            //   console.log(data)
         } catch (error) {
-          console.error(error);
-          setErrorMessage('An error occurred while sending data to the server.')
+            console.error(error);
+            setErrorMessage('An error occurred while sending data to the server.')
         }
-      };
+    };
 
     return (
         <div className="r-fullview">
             <div className="r-maincontent-background">
                 <div className="r-maincontent_container">
-                    <div className="r-header_container">
-                        <img src={Header} alt="dhbworkout header logo" className='r-header' />
-                    </div>
-                    <div className="r-form_container">
-                        <div className="r-submit_container">
-                            <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange} />
-                            <InputField placeholder='Vorname' onChange={handleFirstNameChange} />
-                            <InputField placeholder='Nachname' onChange={handleNameChange} />
-                            <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange} />
-                            <PasswordInputField placeholder='Passwort wiederholen' onChange={handlePasswordCheckChange} />
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="r-header_container">
+                                    <img src={Header} alt="dhbworkout header logo" className='r-header'/>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className='r-AGBcheck_container'>
-                        <Checkbox checked={agbAccepted} onChange={handleAgbChange} />
-                    </div>
-                    <div className="r-error-message_container">
-                        {errorMessage && <div className='aileron-bold-dark-red-16px r-error-message'>{errorMessage}</div>}
-                    </div>
-                    <div className="r-button_container">
-                        <div className="container-fluid">
-                            <div className="row">
-                            <div className="col-md-2"></div>
-                            <div className="col-md-4 r-loginbutton_container">
-                        <Link to='/login'>
-                            <Button buttonText='Zurück' />
-                        </Link>
+                        <div className="r-form_container">
+                            <div className="r-submit_container">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange}/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <InputField placeholder='Vorname' onChange={handleFirstNameChange}/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <InputField placeholder='Nachname' onChange={handleNameChange}/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange}/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <PasswordInputField placeholder='Passwort wiederholen'
+                                                            onChange={handlePasswordCheckChange}/>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="col-md-4 r-loginbutton_container">
-                        <Link to='/home'>
-                            <Button buttonText='Registrieren' onClick={handleRegistration} />
-                        </Link>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className='r-AGBcheck_container'>
+                                    <Checkbox checked={agbAccepted} onChange={handleAgbChange}/>
+                                </div>
                             </div>
-                            <div className="col-md-2"></div>
-                    </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="r-error-message_container">
+                                    {errorMessage && <div
+                                        className='aileron-bold-dark-red-16px r-error-message'>{errorMessage}</div>}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="r-button_container">
+                            <div className="row justify-content-center">
+                                <div className="col-md-4 r-loginbutton_container">
+                                    <Link to='/login'>
+                                        <Button buttonText='Zurück'/>
+                                    </Link>
+                                </div>
+                                <div className="col-md-4 r-loginbutton_container">
+                                    <Link to='/home'>
+                                        <Button buttonText='Registrieren' onClick={handleRegistration}/>
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
 
     )
@@ -164,16 +196,16 @@ export default function RegistrationView() {
 }
 
 
-function Checkbox({ checked, onChange }) {
+function Checkbox({checked, onChange}) {
     return (
         <label className='aileron-bold-black-16px'>
-            <input type='checkbox' checked={checked} onChange={onChange} />
+            <input type='checkbox' checked={checked} onChange={onChange}/>
             Ich akzeptiere die allgemeinen Geschäftsbedingungen
         </label>
     )
 }
 
-function InputField({ placeholder, onChange }) {
+function InputField({placeholder, onChange}) {
     const [inputValue, setInputValue] = useState('');
 
     const handleChange = (event) => {
@@ -186,6 +218,7 @@ function InputField({ placeholder, onChange }) {
             <input
                 id='input-field'
                 type='text'
+                className="inputField_container"
                 value={inputValue}
                 onChange={handleChange}
                 placeholder={placeholder}
@@ -194,7 +227,7 @@ function InputField({ placeholder, onChange }) {
     )
 }
 
-function PasswordInputField({ placeholder, onChange }) {
+function PasswordInputField({placeholder, onChange}) {
     const [displayValue, setDisplayValue] = useState('');
 
     const handleChange = (event) => {
@@ -207,6 +240,7 @@ function PasswordInputField({ placeholder, onChange }) {
             <input
                 id='input-field'
                 type='text'
+                className="inputField_container"
                 value={displayValue}
                 onChange={handleChange}
                 placeholder={placeholder}
@@ -215,7 +249,7 @@ function PasswordInputField({ placeholder, onChange }) {
     )
 }
 
-function Button({ buttonText, onClick }) {
+function Button({buttonText, onClick}) {
     return (
         <button id='button' className='aileron-bold-white-16px' onClick={onClick}>{buttonText}</button>
     )

@@ -75,39 +75,60 @@ export default function LoginView() {
 
     return (
         <div className="fullview">
+
             <div className="maincontent-background">
                 <div className="maincontent_container">
-                    <div className="header_container">
-                        <img src={Header} alt="dhbworkout header logo" className='header'/>
-                    </div>
-                    <div className="mainicon__container-big">
-                        <img src={Logo} alt="dhbworkout logo" className='mainicon'/>
-                    </div>
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="header_container">
+                                    <img src={Header} alt="dhbworkout header logo" className='header'/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="mainicon__container-big">
+                                    <img src={Logo} alt="dhbworkout logo" className='mainicon'/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="form_container">
 
-                    <div className="form_container">
-                        <div className="submit_container">
-                            <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange}/>
-                            <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange}/>
-                        </div>
-                        <div className="error-message_container">
-                            {errorMessage &&
-                                <div className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
-                        </div>
-                        <div className="button_container">
-                            <div className="container-fluid">
+                            <div className="submit_container">
                                 <div className="row">
-                                    <div className="col-md-2"></div>
-                                    <div className="col-md-4 loginbutton_container">
+                                    <div className="col-md-12">
+                                        <InputField placeholder='E-Mail-Adresse' onChange={handleEmailChange}/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <PasswordInputField placeholder='Passwort' onChange={handlePasswordChange}/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="error-message_container">
+                                        {errorMessage &&
+                                            <div
+                                                className='aileron-bold-dark-red-16px error-message'>{errorMessage}</div>}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="button_container">
+                                <div className="row justify-content-center">
+                                    <div className="col-lg-4 loginbutton_container">
                                         <Link to='/registration'>
                                             <Button buttonText='Registrieren'/>
                                         </Link>
                                     </div>
-                                    <div className="col-md-4 loginbutton_container">
+                                    <div className="col-lg-4 loginbutton_container">
                                         <Link to='/home'>
                                             <Button buttonText='Anmelden' onClick={handleLogin}/>
                                         </Link>
                                     </div>
-                                    <div className="col-md-2"></div>
                                 </div>
 
                             </div>
