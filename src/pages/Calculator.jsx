@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
-//import '../ressource/assets/calculater.css'
+import '../ressource/assets/calculator.css'
 
 export default function Calculator() {
 
@@ -21,14 +21,14 @@ export default function Calculator() {
         <div>
             <Sidebar />
             <div className='main-content_container'>
-                <h1>BMI-Calculator</h1>
-                <p>Enter your weight in kg</p> 
+                <h1>BMI-Rechner</h1>
+                <p>Gebe dein Gewicht in kg an:</p> 
                 <input type='text' id='weight'/>
-                <p>Enter your height in cm</p> 
+                <p>Gebe deine Größe in cm an:</p> 
                 <input type='text' id='height'/>
                 <p></p>
-                <button onClick={calculate}>Calculate</button>
-                <p id='bmi'> Result: </p>
+                <button onClick={calculate}>Berechne</button>
+                <p id='bmi'> Eregbnis: </p>
             </div>
         
             <Footer />
