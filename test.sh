@@ -1,4 +1,4 @@
-pm2 start npm --start
+npm start &
 npx playwright install
 npx playwright install-deps
 npx playwright test -c ./playwright.config.ts
