@@ -52,6 +52,7 @@ pipeline {
                         always {
                             script {
                                 if (fileExists('/dhbworkout-webapp-test-results')) {
+                                    sh "/dhbworkout-webapp-test-results"
                                     junit '/dhbworkout-webapp-test-results/*.xml'
                                 }
                             }
