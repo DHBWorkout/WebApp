@@ -51,8 +51,8 @@ pipeline {
                     post {
                         always {
                             script {
-                                if (fileExists('dhbworkout-webapp-test-results')) {
-                                    junit 'dhbworkout-webapp-test-results/*.xml'
+                                if (fileExists('/dhbworkout-webapp-test-results')) {
+                                    junit '/dhbworkout-webapp-test-results/*.xml'
                                 }
                             }
                         }
