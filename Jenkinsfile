@@ -53,7 +53,8 @@ pipeline {
                             script {
                                 if (fileExists('/dhbworkout-webapp-test-results')) {
                                     sh "ls -l /dhbworkout-webapp-test-results"
-                                    junit '/dhbworkout-webapp-test-results/*.xml'
+                                    sh "cp /dhbworkout-webapp-test-results/results.xml results.xml"
+                                    junit 'results.xml'
                                 }
                             }
                         }
