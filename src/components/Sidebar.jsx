@@ -36,15 +36,16 @@ export default function Sidebar() {
                 </Link>
 
 
-
-                <div className="sidebar-button">
-                    <div className="sidebar-icon__container">
-                        <img src={ProfilIcon} alt="profil icon" className="sidebar-icon" />
+                <Link to='/profile' className={"sidebar-button"}>
+                    <div className="sidebar-button">
+                        <div className="sidebar-icon__container">
+                            <img src={ProfilIcon} alt="profil icon" className="sidebar-icon" />
+                        </div>
+                        <div className="sidebar-string">
+                            <span className='aileron-bold-white-18px'>Profil</span>
+                        </div>
                     </div>
-                    <div className="sidebar-string">
-                        <span className='aileron-bold-white-18px'>Profil</span>
-                    </div>
-                </div>
+                </Link>
 
                 <div className="sidebar-button">
                     <div className="sidebar-icon__container">
@@ -54,7 +55,6 @@ export default function Sidebar() {
                         <span className='aileron-bold-white-18px'>Trainingsplan</span>
                     </div>
                 </div>
-
 
 
 
