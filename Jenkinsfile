@@ -41,17 +41,20 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
+        stage('Run Test') {
+
                     steps {
                         script {
-                            // Poor mans run version
-                            try {
-                                sh "docker stop dhbworkout-webapp"
-                                sh "docker rm dhbworkout-webapp"
-                            } catch (err) {
-                                echo err.getMessage()
+                            sh "docker run -d --restart=always --network=dhbworkout --ip=10.24.102.15 -v dhbworkout-webapp-test-results:/app/test-report --name=dhbworkout-test 10.22.100.20:9005/dhbworkout/webapp -sh test.sh"
+                        }
+                    }
+                    post {
+                        always {
+                            script {
+                                if (fileExists('dhbworkout-webapp-test-results')) {
+                                    junit 'dhbworkout-webapp-test-results/*.xml'
+                                }
                             }
-                            sh "docker run -d --restart=always --network=dhbworkout --ip=10.24.102.15 --name=dhbworkout-webapp 10.22.100.20:9005/dhbworkout/webapp -sh test.sh"
                         }
                     }
                 }
