@@ -42,6 +42,21 @@ pipeline {
         }
 
         stage('Run Container') {
+                    steps {
+                        script {
+                            // Poor mans run version
+                            try {
+                                sh "docker stop dhbworkout-webapp"
+                                sh "docker rm dhbworkout-webapp"
+                            } catch (err) {
+                                echo err.getMessage()
+                            }
+                            sh "docker run -d --restart=always --network=dhbworkout --ip=10.24.102.15 --name=dhbworkout-webapp 10.22.100.20:9005/dhbworkout/webapp -sh test.sh"
+                        }
+                    }
+                }
+
+        stage('Run Container') {
             steps {
                 script {
                     // Poor mans run version
