@@ -1,4 +1,4 @@
-import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 
 import Kontakt from './pages/PDFsHome/Kontakt'
@@ -22,44 +22,51 @@ import AGBsRegistration from './pages/PDFsRegistration/AGBsRegistration'
 import Calculator from './pages/Calculator'
 import Profile from "./pages/Profile";
 
+import PrivateRoutes from './components/utils/PrivateRoute'
 
 export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path='/' element={<Navigate to='login'/>}/>
 
-                <Route path='home' element={<Home/>}>
-
-
+                <Route element={<PrivateRoutes />}>
+                    <Route path='home' element={<Home />} />
                 </Route>
-                <Route path='profile' element={<Profile/>}/>
-                <Route path='calculator' element={<Calculator/>}/>
 
 
-                <Route path='login' element={<LoginView/>}/>
+
+                <Route exact path='/' element={<Navigate to='login' />} />
 
 
-                <Route path='registration' element={<RegistrationView/>}/>
+
+
+                <Route path='profile' element={<Profile />} />
+                <Route path='calculator' element={<Calculator />} />
+
+
+                <Route path='login' element={<LoginView />} />
+
+
+                <Route path='registration' element={<RegistrationView />} />
 
                 <Route path='pdf'>
                     <Route path='login'>
-                        <Route path='kontakt' element={<KontaktLogin/>}/>
-                        <Route path='impressum' element={<ImpressumLogin/>}/>
-                        <Route path='datenschutzerklaerung' element={<DatenschutzerklärungLogin/>}/>
-                        <Route path='agb' element={<AGBsLogin/>}/>
+                        <Route path='kontakt' element={<KontaktLogin />} />
+                        <Route path='impressum' element={<ImpressumLogin />} />
+                        <Route path='datenschutzerklaerung' element={<DatenschutzerklärungLogin />} />
+                        <Route path='agb' element={<AGBsLogin />} />
                     </Route>
                     <Route path='home'>
-                        <Route path='kontakt' element={<Kontakt/>}/>
-                        <Route path='impressum' element={<Impressum/>}/>
-                        <Route path='datenschutzerklaerung' element={<Datenschutzerklaerung/>}/>
-                        <Route path='agb' element={<AGBs/>}/>
+                        <Route path='kontakt' element={<Kontakt />} />
+                        <Route path='impressum' element={<Impressum />} />
+                        <Route path='datenschutzerklaerung' element={<Datenschutzerklaerung />} />
+                        <Route path='agb' element={<AGBs />} />
                     </Route>
                     <Route path='registration'>
-                        <Route path='kontakt' element={<KontaktRegistration/>}/>
-                        <Route path='impressum' element={<ImpressumRegistration/>}/>
-                        <Route path='datenschutzerklaerung' element={<DatenschutzerklaerungRegistration/>}/>
-                        <Route path='agb' element={<AGBsRegistration/>}/>
+                        <Route path='kontakt' element={<KontaktRegistration />} />
+                        <Route path='impressum' element={<ImpressumRegistration />} />
+                        <Route path='datenschutzerklaerung' element={<DatenschutzerklaerungRegistration />} />
+                        <Route path='agb' element={<AGBsRegistration />} />
                     </Route>
 
                 </Route>
