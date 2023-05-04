@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import '../ressource/assets/calculator.css'
 
 export default function Calculator() {
+
+    const [feedbackMessage, setFeedbackMessage] = useState('')
 
     function calculate() {
         var weight = document.getElementById("weight").value;
@@ -11,6 +13,20 @@ export default function Calculator() {
 
         var ergebnis = weight / (height * height);
         document.getElementById("bmi").innerHTML = "Ergebnis: " + ergebnis.toFixed(2).toString();
+
+        if (ergebnis === null) {
+            setFeedbackMessage('')
+        } else if (ergebnis < 18.5) {
+            setFeedbackMessage('Sie haben Untergewicht.')
+        } else if (ergebnis < 25) {
+            setFeedbackMessage('Sie haben Normalgewicht.')
+        } else if (ergebnis < 23) {
+            setFeedbackMessage('Sie haben Übergewicht.')
+        } else if (ergebnis < 35) {
+            setFeedbackMessage('Sie haben starkes Übergewicht')
+        } else if (ergebnis >= 35) {
+            setFeedbackMessage('Sie haben Adipositas.')
+        }
     }
 
     return (
@@ -48,6 +64,11 @@ export default function Calculator() {
 
                 <div className="bmi-text_container">
                     <p id='bmi' className='aileron-bold-black-24px'> Ergebnis: </p>
+                </div>
+                <div className="feedback_container">
+                    {feedbackMessage &&
+                        <div
+                            className='aileron-bold-dark-red-18px error-message'>{feedbackMessage}</div>}
                 </div>
 
             </div>

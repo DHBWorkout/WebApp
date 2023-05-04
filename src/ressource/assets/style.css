@@ -99,6 +99,14 @@
     font-style: normal;
 }
 
+.aileron-bold-dark-red-18px {
+    color: var(--dark-red);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-style: normal;
+}
+
 .aileron-bold-black-24px {
     color: var(--black);
     font-family: var(--font-family-aileron-bold);
