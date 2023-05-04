@@ -1,0 +1,85 @@
+.main-content_container {
+    position: absolute;
+    top:0;
+    right:0;
+    height: 90vh;
+    width: 80%;
+}
+
+
+.text_container {
+    position: relative;
+    top: 11.11%;
+    left: 12.5%;
+    height: 70vh;
+    width: 75%;
+    
+}
+
+.text-header {
+    text-align: center;
+}
+
+.text {
+    text-align: justify;
+
+}
+
+.hint{
+    text-align: center;
+
+}
+
+.body{
+    display: flex;
+  justify-content: center;
+}
+
+.body-content-left{
+    margin: 50px;
+
+}
+
+
+.body-content-right{
+    margin: 50px;
+}
+
+.trainingstable{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse ;
+    border: none;
+    width: 100%;
+    margin: 20px;
+}
+
+.tableheader{
+    background-color: black;
+    color: white;
+
+}
+
+button{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+
+button:hover{
+    background-color: orangered;
+    cursor: pointer;
+}
+
+td {
+    text-align: center;
+}
+
+h2 {
+    background-color: black;
+    border-radius: 200px;
+    color: white;
+    text-align: center;
+    padding-inline: 20px;
+    padding: 5px;
+}
