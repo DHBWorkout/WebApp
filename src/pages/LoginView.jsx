@@ -132,9 +132,7 @@ export default function LoginView() {
                                         </Link>
                                     </div>
                                     <div className="col-lg-4 loginbutton_container">
-                                        <Link to='/home'>
-                                            <Button buttonText='Anmelden' onClick={handleLogin}/>
-                                        </Link>
+                                        <Button buttonText='Anmelden' onClick={handleLogin}/>
                                     </div>
                                 </div>
 
