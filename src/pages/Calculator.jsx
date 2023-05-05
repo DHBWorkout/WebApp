@@ -5,6 +5,14 @@ import '../ressource/assets/calculator.css'
 
 export default function Calculator() {
 
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          // Call your function here
+          calculate();
+        }
+      });
+
     const [feedbackMessage, setFeedbackMessage] = useState('')
 
     function calculate() {
