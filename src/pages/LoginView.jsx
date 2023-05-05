@@ -8,6 +8,13 @@ import '../ressource/assets/inputfield.css'
 
 export default function LoginView() {
 
+    ocument.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          // Call your function here
+          handleLogin();
+        }
+      });
+
     const navigate = useNavigate();
     const [emailSet, setEmailSet] = useState(false)
     const [emailValue, setEmailValue] = useState('')
