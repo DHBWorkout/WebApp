@@ -187,9 +187,7 @@ export default function RegistrationView() {
                                     </Link>
                                 </div>
                                 <div className="col-md-4 r-loginbutton_container">
-                                    <Link to='/home'>
-                                        <Button buttonText='Registrieren' onClick={handleRegistration}/>
-                                    </Link>
+                                    <Button buttonText='Registrieren' onClick={handleRegistration}/>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +237,7 @@ function PasswordInputField({placeholder, onChange}) {
     const [displayValue, setDisplayValue] = useState('');
 
     const handleChange = (event) => {
-        setDisplayValue(event.target.value.replace(/./g, '*'));
+        setDisplayValue(event.target.value);
         onChange(event)
     }
 
@@ -247,7 +245,7 @@ function PasswordInputField({placeholder, onChange}) {
         <div>
             <input
                 id='input-field'
-                type='text'
+                type='password'
                 className="inputField_container"
                 value={displayValue}
                 onChange={handleChange}
