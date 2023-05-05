@@ -100,7 +100,6 @@ export default function RegistrationView() {
 
         try {
             const response = await fetch('https://api.dhbworkout.de/v1/register', {
-                mode: 'no-cors',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -110,6 +109,7 @@ export default function RegistrationView() {
 
             if (response.ok) {
                 setErrorMessage('Connection established')
+                document.cookie = "token=" + (await response.json()).Response.Token;
                 navigate('/home')
             } else {
                 setErrorMessage('Diese E-Mail ist bereits vergeben')
