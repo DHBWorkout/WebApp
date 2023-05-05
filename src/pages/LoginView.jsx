@@ -8,7 +8,7 @@ import '../ressource/assets/inputfield.css'
 
 export default function LoginView() {
 
-    ocument.addEventListener("keydown", function(event) {
+    document.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
           // Call your function here
           handleLogin();
@@ -39,8 +39,8 @@ export default function LoginView() {
         setErrorMessage('')
     }
 
-    const handleLogin = (e) => {
-        e.preventDefault()
+    const handleLogin = () => {
+        
         if (!emailSet && passwordSet) {
             setErrorMessage('Bitte geben Sie Ihre E-Mail-Adresse ein')
         } else if (emailSet && isValidEmail(emailValue) && !passwordSet) {
