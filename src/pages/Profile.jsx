@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 import getCookie from "../Cookies";
+import '../ressource/assets/profile.css'
 
 export default function Profile() {
 
@@ -35,6 +36,10 @@ export default function Profile() {
         <div>
             <Sidebar />
             <div className='main-content_container'>
+                <div className="profile-header">
+                    <p className='aileron-bold-black-16px' id={"prename"}></p>
+                    <p className='aileron-bold-black-16px' id={"surname"}></p>
+                </div>
                 <h1>Profil</h1>
                 <p id={"prename"}>Prename</p>
                 <p id={"surname"}>Surname</p>
