@@ -2,15 +2,15 @@ import { test, expect } from '@playwright/test';
 import {wait} from "@testing-library/user-event/dist/utils";
 
 test('has title', async ({ page }) => {
-  await page.goto("https://www.dhbworkout.de/");
+  await page.goto("http://localhost:3000");
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/DHBWorkout/);
-  await expect(page).toHaveURL("https://www.dhbworkout.de/login")
+  await expect(page).toHaveURL("http://localhost:3000/login")
 });
 
 test('loading message', async ({ page }) => {
-  await page.goto('https://www.dhbworkout.de/');
+  await page.goto('http://localhost:3000/');
   await page.getByPlaceholder('E-Mail-Adresse').click();
   await page.getByPlaceholder('E-Mail-Adresse').fill('king@king.com');
   await page.getByPlaceholder('Passwort').click();
@@ -22,7 +22,7 @@ test('loading message', async ({ page }) => {
 });
 
 test('wrong password', async ({ page }) => {
-  await page.goto('https://www.dhbworkout.de/');
+  await page.goto('http://localhost:3000/');
   await page.getByPlaceholder('E-Mail-Adresse').click();
   await page.getByPlaceholder('E-Mail-Adresse').fill('king@king.com');
   await page.getByPlaceholder('Passwort').click();
@@ -34,7 +34,7 @@ test('wrong password', async ({ page }) => {
 });
 
 test('no email', async ({ page }) => {
-  await page.goto('https://www.dhbworkout.de/');
+  await page.goto('http://localhost:3000/');
   await page.getByPlaceholder('Passwort').click();
   await page.getByPlaceholder('Passwort').fill('King');
   // eslint-disable-next-line testing-library/prefer-screen-queries
@@ -44,7 +44,7 @@ test('no email', async ({ page }) => {
 });
 
 test('invalid email', async ({ page }) => {
-  await page.goto('https://www.dhbworkout.de/');
+  await page.goto('http://localhost:3000/');
   await page.getByPlaceholder('E-Mail-Adresse').click();
   await page.getByPlaceholder('E-Mail-Adresse').fill('test');
   await page.getByPlaceholder('Passwort').click();
@@ -56,7 +56,7 @@ test('invalid email', async ({ page }) => {
 });
 
 test('unused email', async ({ page }) => {
-  await page.goto('https://www.dhbworkout.de/');
+  await page.goto('http://localhost:3000/');
   await page.getByPlaceholder('E-Mail-Adresse').click();
   await page.getByPlaceholder('E-Mail-Adresse').fill('dfghjk@lkjhgfd.de');
   await page.getByPlaceholder('Passwort').click();

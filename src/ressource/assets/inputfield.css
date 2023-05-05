@@ -13,8 +13,18 @@
     width: 100%;
 }
 
+#button:hover {
+    background-color: var(--chestnut);
+    color: black;
+}
+
 #loginbutton {
     background-color: var(--dark-red);
     height: 100%;
     width: 100%;
+}
+
+#loginbutton:hover {
+    background-color: var(--chestnut);
+    color: black;
 }

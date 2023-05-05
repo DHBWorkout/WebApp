@@ -11,6 +11,7 @@
     --font-size-l: 16px;
     --font-size-xl: 18px;
     --font-size-xxl: 24px;
+    --font-size-obesity: 48px;
 
     --font-family-aileron-regular: "Aileron-Regular";
     --font-family-aileron-bold: "Aileron-Bold";
@@ -98,10 +99,26 @@
     font-style: normal;
 }
 
+.aileron-bold-dark-red-18px {
+    color: var(--dark-red);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-style: normal;
+}
+
 .aileron-bold-black-24px {
     color: var(--black);
     font-family: var(--font-family-aileron-bold);
     font-size: var(--font-size-xxl);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.aileron-bold-black-48px {
+    color: var(--black);
+    font-family: var(--font-family-aileron-bold);
+    font-size: var(--font-size-obesity);
     font-weight: 700;
     font-style: normal;
 }

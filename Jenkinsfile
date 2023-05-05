@@ -6,7 +6,7 @@ pipeline {
                 script {
                     // The below will clone your repo and will be checked out to master branch by default.
                     git branch: 'master', credentialsId: 'GitHub-DerFrZocker-Read-DHBWorkout', url: "https://github.com/DHBWorkout/WebApp.git"
-                    // Do a ls -lart to view all the files are cloned. It will be clonned. This is just for you to be sure about it.
+                    // Do a ls -lart to view all the files are cloned. It will be cloned. This is just for you to be sure about it.
                     sh "ls -lart ./*"
                     // List all branches in your repo.
                     sh "git branch -a"
@@ -40,6 +40,26 @@ pipeline {
                 }
             }
         }
+
+        stage('Run Test') {
+
+                    steps {
+                        script {
+                            sh "docker run --rm --network=dhbworkout --ip=10.24.102.16 -v dhbworkout-webapp-test-results:/app/test-results --name=dhbworkout-test 10.22.100.20:9005/dhbworkout/webapp sh test.sh"
+                        }
+                    }
+                    post {
+                        always {
+                            script {
+                                if (fileExists('/dhbworkout-webapp-test-results')) {
+                                    sh "ls -l /dhbworkout-webapp-test-results"
+                                    sh "cp /dhbworkout-webapp-test-results/results.xml results.xml"
+                                    junit 'results.xml'
+                                }
+                            }
+                        }
+                    }
+                }
 
         stage('Run Container') {
             steps {

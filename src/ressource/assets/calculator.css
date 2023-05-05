@@ -1,0 +1,64 @@
+.main-content_container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bmi-title_container {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bmi-text_container {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bmi-input_container {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bmi-input-field {
+    background-color: #ececec;
+    border: 2px solid var(--dark-red);
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    height: 100%;
+    width: 30%;
+}
+
+.bmi-button_container {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bmi-button {
+    background-color: var(--dark-red);
+    height: 50%;
+    width: 20%;
+}
+
+.bmi-button:hover {
+    background-color: var(--chestnut);
+    color: black;
+}
