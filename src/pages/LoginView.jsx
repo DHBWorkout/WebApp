@@ -13,7 +13,7 @@ export default function LoginView() {
           // Call your function here
           handleLogin();
         }
-      }
+    }
 
     const navigate = useNavigate();
     const [emailSet, setEmailSet] = useState(false)

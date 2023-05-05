@@ -8,12 +8,12 @@ import '../ressource/assets/inputfield.css'
 export default function RegistrationView() {
 
 
-    document.addEventListener("keydown", function(event) {
+    const  handleKeyEvent = (event) => {
         if (event.key === "Enter") {
-          // Call your function here
-          handleRegistration();
+            // Call your function here
+            handleRegistration();
         }
-      });
+    }
 
     const navigate = useNavigate();
     const [emailSet, setEmailSet] = useState(false)
@@ -134,7 +134,7 @@ export default function RegistrationView() {
                                 </div>
                             </div>
                         </div>
-                        <div className="r-form_container">
+                        <div className="r-form_container" onKeyUp={handleKeyEvent}>
                             <div className="r-submit_container">
                                 <div className="row">
                                     <div className="col-md-12">
@@ -164,7 +164,7 @@ export default function RegistrationView() {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row" onKeyUp={handleKeyEvent}>
                             <div className="col-md-12">
                                 <div className='r-AGBcheck_container'>
                                     <Checkbox checked={agbAccepted} onChange={handleAgbChange}/>
