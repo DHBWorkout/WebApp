@@ -7,6 +7,14 @@ import '../ressource/assets/inputfield.css'
 
 export default function RegistrationView() {
 
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          // Call your function here
+          handleRegistration();
+        }
+      });
+
     const navigate = useNavigate();
     const [emailSet, setEmailSet] = useState(false)
     const [emailValue, setEmailValue] = useState('')
@@ -62,8 +70,8 @@ export default function RegistrationView() {
         setErrorMessage('')
     };
 
-    const handleRegistration = (e) => {
-        e.preventDefault()
+    const handleRegistration = () => {
+        
         if (emailSet && firstNameSet && nameSet && passwordSet && passwordCheckSet && agbAccepted && (passwordCheckValue === passwordValue) && isValidEmail(emailValue)) {
             setErrorMessage('')
 
