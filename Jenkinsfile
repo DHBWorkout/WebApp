@@ -6,7 +6,7 @@ pipeline {
                 script {
                     // The below will clone your repo and will be checked out to master branch by default.
                     git branch: 'master', credentialsId: 'GitHub-DerFrZocker-Read-DHBWorkout', url: "https://github.com/DHBWorkout/WebApp.git"
-                    // Do a ls -lart to view all the files are cloned. It will be clonned. This is just for you to be sure about it.
+                    // Do a ls -lart to view all the files are cloned. It will be cloned. This is just for you to be sure about it.
                     sh "ls -lart ./*"
                     // List all branches in your repo.
                     sh "git branch -a"
