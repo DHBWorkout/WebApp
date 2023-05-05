@@ -8,6 +8,7 @@ import RegistrationView from './pages/RegistrationView'
 import Home from './pages/Home'
 import Calculator from './pages/Calculator'
 import Profile from "./pages/Profile";
+import Workoutplan from "./pages/Workoutplan";
 
 
 //import PDFS
@@ -39,6 +40,7 @@ export default function Router() {
                     <Route path='home' element={<Home />} />
                     <Route path='profile' element={<Profile />} />
                     <Route path='calculator' element={<Calculator />} />
+                    <Route path='workoutplan' element={<Workoutplan />}/>
 
                     <Route path='pdf'>
                         <Route path='login'>

@@ -49,7 +49,7 @@ export default function Sidebar() {
                     </div>
                 </Link>
 
-                <Link to='/trainingsplan' className="sidebar-button">
+                <Link to='/workoutplan' className="sidebar-button">
                 <div className="sidebar-button">
                     <div className="sidebar-icon__container">
                         <img src={PlanIcon} alt="trainingsplan icon" className="sidebar-icon" />

@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import Text from "../components/Workoutplans";
 
 
-export default function Home() {
+export default function Workoutplan() {
     return (
         <div>
             <Sidebar />
