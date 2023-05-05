@@ -8,12 +8,12 @@ import '../ressource/assets/inputfield.css'
 
 export default function LoginView() {
 
-    document.addEventListener("keydown", function(event) {
+    const  handleKeyEvent = (event) => {
         if (event.key === "Enter") {
           // Call your function here
           handleLogin();
         }
-      });
+    }
 
     const navigate = useNavigate();
     const [emailSet, setEmailSet] = useState(false)
@@ -100,7 +100,7 @@ export default function LoginView() {
                                 </div>
                             </div>
                         </div>
-                        <div className="form_container">
+                        <div className="form_container" onKeyUp={handleKeyEvent}>
 
                             <div className="submit_container">
                                 <div className="row">
@@ -132,9 +132,7 @@ export default function LoginView() {
                                         </Link>
                                     </div>
                                     <div className="col-lg-4 loginbutton_container">
-                                        <Link to='/home'>
-                                            <Button buttonText='Anmelden' onClick={handleLogin}/>
-                                        </Link>
+                                        <Button buttonText='Anmelden' onClick={handleLogin}/>
                                     </div>
                                 </div>
 

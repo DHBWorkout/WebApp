@@ -8,12 +8,12 @@ import '../ressource/assets/inputfield.css'
 export default function RegistrationView() {
 
 
-    document.addEventListener("keydown", function(event) {
+    const  handleKeyEvent = (event) => {
         if (event.key === "Enter") {
-          // Call your function here
-          handleRegistration();
+            // Call your function here
+            handleRegistration();
         }
-      });
+    }
 
     const navigate = useNavigate();
     const [emailSet, setEmailSet] = useState(false)
@@ -100,7 +100,6 @@ export default function RegistrationView() {
 
         try {
             const response = await fetch('https://api.dhbworkout.de/v1/register', {
-                mode: 'no-cors',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -110,6 +109,7 @@ export default function RegistrationView() {
 
             if (response.ok) {
                 setErrorMessage('Connection established')
+                document.cookie = "token=" + (await response.json()).Response.Token;
                 navigate('/home')
             } else {
                 setErrorMessage('Diese E-Mail ist bereits vergeben')
@@ -134,7 +134,7 @@ export default function RegistrationView() {
                                 </div>
                             </div>
                         </div>
-                        <div className="r-form_container">
+                        <div className="r-form_container" onKeyUp={handleKeyEvent}>
                             <div className="r-submit_container">
                                 <div className="row">
                                     <div className="col-md-12">
@@ -164,7 +164,7 @@ export default function RegistrationView() {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row" onKeyUp={handleKeyEvent}>
                             <div className="col-md-12">
                                 <div className='r-AGBcheck_container'>
                                     <Checkbox checked={agbAccepted} onChange={handleAgbChange}/>
@@ -187,9 +187,7 @@ export default function RegistrationView() {
                                     </Link>
                                 </div>
                                 <div className="col-md-4 r-loginbutton_container">
-                                    <Link to='/home'>
-                                        <Button buttonText='Registrieren' onClick={handleRegistration}/>
-                                    </Link>
+                                    <Button buttonText='Registrieren' onClick={handleRegistration}/>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +237,7 @@ function PasswordInputField({placeholder, onChange}) {
     const [displayValue, setDisplayValue] = useState('');
 
     const handleChange = (event) => {
-        setDisplayValue(event.target.value.replace(/./g, '*'));
+        setDisplayValue(event.target.value);
         onChange(event)
     }
 
@@ -247,7 +245,7 @@ function PasswordInputField({placeholder, onChange}) {
         <div>
             <input
                 id='input-field'
-                type='text'
+                type='password'
                 className="inputField_container"
                 value={displayValue}
                 onChange={handleChange}

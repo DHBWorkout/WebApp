@@ -15,7 +15,9 @@ import LogoutIcon from '../ressource/icons/LogOut.png'
 
 //margin links 45px
 
-
+function handleLogout(){
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
 
 export default function Sidebar() {
     return (
@@ -47,6 +49,7 @@ export default function Sidebar() {
                     </div>
                 </Link>
 
+                <Link to='/workoutplan' className="sidebar-button">
                 <div className="sidebar-button">
                     <div className="sidebar-icon__container">
                         <img src={PlanIcon} alt="trainingsplan icon" className="sidebar-icon" />
@@ -55,6 +58,7 @@ export default function Sidebar() {
                         <span className='aileron-bold-white-18px'>Trainingsplan</span>
                     </div>
                 </div>
+                </Link>
 
 
 
@@ -85,7 +89,7 @@ export default function Sidebar() {
                     </div>
                 </div>
 
-                <Link to='/login' className="sidebar-button">
+                <Link onClick={handleLogout} to='/login' className="sidebar-button">
                     <div className="sidebar-icon__container">
                         <img src={LogoutIcon} alt="logout icon" className="sidebar-icon" />
                     </div>

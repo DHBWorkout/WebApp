@@ -6,12 +6,12 @@ import '../ressource/assets/calculator.css'
 export default function Calculator() {
 
 
-    document.addEventListener("keydown", function(event) {
+    const  handleKeyEvent = (event) => {
         if (event.key === "Enter") {
-          // Call your function here
-          calculate();
+            // Call your function here
+            calculate();
         }
-      });
+    }
 
     const [feedbackMessage, setFeedbackMessage] = useState('')
 
@@ -42,7 +42,7 @@ export default function Calculator() {
 
         <div>
             <Sidebar />
-            <div className='main-content_container'>
+            <div className='main-content_container' onKeyUp={handleKeyEvent}>
 
                 <div className="bmi-title_container">
                     <p className="aileron-bold-black-48px">
