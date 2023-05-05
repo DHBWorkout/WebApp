@@ -35,6 +35,23 @@ export default function Router() {
                 <Route exact path='/' element={<Navigate to='login' />} />
                 <Route path='login' element={<LoginView />} />
                 <Route path='registration' element={<RegistrationView />} />
+                <Route path='pdf' >
+                    <Route path='login'>
+                        <Route path='kontakt' element={<KontaktLogin />} />
+                        <Route path='impressum' element={<ImpressumLogin />} />
+                        <Route path='datenschutzerklaerung' element={<DatenschutzerklärungLogin />} />
+                        <Route path='agb' element={<AGBsLogin />} />
+                    </Route>
+
+                    <Route path='registration'>
+                        <Route path='kontakt' element={<KontaktRegistration />} />
+                        <Route path='impressum' element={<ImpressumRegistration />} />
+                        <Route path='datenschutzerklaerung' element={<DatenschutzerklaerungRegistration />} />
+                        <Route path='agb' element={<AGBsRegistration />} />
+                    </Route>
+
+
+                </Route>
 
                 <Route element={<PrivateRoutes />}>
                     <Route path='home' element={<Home />} />
@@ -43,12 +60,7 @@ export default function Router() {
                     <Route path='workoutplan' element={<Workoutplan />}/>
 
                     <Route path='pdf'>
-                        <Route path='login'>
-                            <Route path='kontakt' element={<KontaktLogin />} />
-                            <Route path='impressum' element={<ImpressumLogin />} />
-                            <Route path='datenschutzerklaerung' element={<DatenschutzerklärungLogin />} />
-                            <Route path='agb' element={<AGBsLogin />} />
-                        </Route>
+
 
                         <Route path='home'>
                             <Route path='kontakt' element={<Kontakt />} />
@@ -57,12 +69,7 @@ export default function Router() {
                             <Route path='agb' element={<AGBs />} />
                         </Route>
 
-                        <Route path='registration'>
-                            <Route path='kontakt' element={<KontaktRegistration />} />
-                            <Route path='impressum' element={<ImpressumRegistration />} />
-                            <Route path='datenschutzerklaerung' element={<DatenschutzerklaerungRegistration />} />
-                            <Route path='agb' element={<AGBsRegistration />} />
-                        </Route>
+
                     </Route>
                 </Route>
             </Routes>
