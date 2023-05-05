@@ -31,8 +31,6 @@ export default function Profile() {
         }
     };
 
-
-
     getData();
     return (
 
