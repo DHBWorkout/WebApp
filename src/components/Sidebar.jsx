@@ -17,7 +17,6 @@ import LogoutIcon from '../ressource/icons/LogOut.png'
 
 function handleLogout(){
     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-    console.log(document.cookie)
 }
 
 export default function Sidebar() {
