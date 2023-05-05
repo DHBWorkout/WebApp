@@ -26,27 +26,78 @@ export default function Profile() {
             document.getElementById("surname").innerHTML = data.Response.Surname
             document.getElementById("birthday").innerHTML = data.Response.Birthday
             document.getElementById("gender").innerHTML = data.Response.Gender
+            const prenameElement = document.getElementById('prename')
+            prenameElement.textContent = 'Willkommen ' + prenameElement.textContent + ' '
         }
     };
 
+
+
     getData();
     return (
-        
+
 
         <div>
             <Sidebar />
             <div className='main-content_container'>
                 <div className="profile-header">
-                    <p className='aileron-bold-black-16px' id={"prename"}></p>
-                    <p className='aileron-bold-black-16px' id={"surname"}></p>
+                    <p className=' profile-text-prename aileron-bold-black-48px prename' id={'prename'}></p>
+                    <p className=' profile-text-surname aileron-bold-black-48px prename' id={'surname'}></p>
                 </div>
-                <h1>Profil</h1>
-                <p id={"prename"}>Prename</p>
-                <p id={"surname"}>Surname</p>
-                <p id={"birthday"}>Birthday</p>
-                <p id={"gender"}>Gender</p>
+                <div className="profile-content_container">
+                    <div className="profile-content-s_container">
+
+                        <div className="top_container">
+                            <div className="stat_container">
+                                <div className="name_container">
+                                    <p className="profile-text aileron-bold-black-16px">Geburtstag</p>
+                                </div>
+                                <div className="number_container">
+                                    <p id={'birthday'} className="profile-text aileron-bold-black-24px"></p>
+                                </div>
+                            </div>
+                            <div className="stat_container">
+                                <div className="name_container">
+                                    <p className="profile-text aileron-bold-black-16px">Geschlecht</p>
+                                </div>
+                                <div className="number_container">
+                                    <p id={'gender'} className="profile-text aileron-bold-black-24px"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bottom_container">
+                            <div className="stat_container">
+                                <div className="name_container">
+                                    <p className="profile-text aileron-bold-black-16px">Alter</p>
+                                </div>
+                                <div className="number_container">
+                                    <p className="profile-text aileron-bold-black-24px">38</p>
+                                </div>
+                            </div>
+                            <div className="stat_container">
+                                <div className="name_container">
+                                    <p className="profile-text aileron-bold-black-16px">KCAL</p>
+                                </div>
+                                <div className="number_container">
+                                    <p className="profile-text aileron-bold-black-24px">2108</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="profile-content-s_container">
+                        <div className="weight-history_container">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div className="profile-content_container">
+
+                </div>
             </div>
-        
+
             <Footer />
         </div>
     )

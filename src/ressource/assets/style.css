@@ -3,6 +3,7 @@
 :root {
     --white: rgba(255, 255, 255, 1);
     --dark-red: rgba(153, 1, 0, 1);
+    --dark-red-light: rgba(153, 1, 0, 0.6);
     --chestnut: rgba(183, 77, 76, 1);
     --whisper: rgba(236, 236, 236, 1);
     --black: rgba(0, 0, 0, 1);
