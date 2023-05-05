@@ -15,7 +15,10 @@ import LogoutIcon from '../ressource/icons/LogOut.png'
 
 //margin links 45px
 
-
+function handleLogout(){
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    console.log(document.cookie)
+}
 
 export default function Sidebar() {
     return (
@@ -85,7 +88,7 @@ export default function Sidebar() {
                     </div>
                 </div>
 
-                <Link to='/login' className="sidebar-button">
+                <Link onClick={handleLogout} to='/login' className="sidebar-button">
                     <div className="sidebar-icon__container">
                         <img src={LogoutIcon} alt="logout icon" className="sidebar-icon" />
                     </div>
