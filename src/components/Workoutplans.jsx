@@ -496,16 +496,16 @@ const handleclickBei = event => {
 
         )
 
-        function changedata(parameter){
-            if(parameter===0){
-                document.getElementById('myorders').style.display = 'block';
-            }
-            else if(parameter===1){
-                document.getElementById('myproducts').style.display = 'block';
-            }
-            else{
-                document.getElementById('mysupplier').style.display = 'block';
-            }
-        }
+        // function changedata(parameter){
+        //     if(parameter===0){
+        //         document.getElementById('myorders').style.display = 'block';
+        //     }
+        //     else if(parameter===1){
+        //         document.getElementById('myproducts').style.display = 'block';
+        //     }
+        //     else{
+        //         document.getElementById('mysupplier').style.display = 'block';
+        //     }
+        // }
 
 }

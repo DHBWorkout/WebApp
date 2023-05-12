@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import FooterLong from '../../components/r_Footer_long'
 import PDFViewer from '../../components/PDFViewerDatenschutzerklaerung'
 import '../../ressource/assets/loginview.css'
-
-import Arrow from "../../ressource/icons/zuruck-button.png";
 import zuruck from "../../ressource/icons/zuruck-button.png";
 import Logo from "../../ressource/icons/logo.png";
 
@@ -19,7 +17,7 @@ export default function DatenschutzerklärungRegistration() {
                     <img src={zuruck} alt="back arrow" className='arrow' />
                 </div>
                 <div className="icon_container">
-                    <p className="zurucktxt">zurück</p>
+                    <p className="aileron-bold-white-24px">zurück</p>
                 </div>
             </Link>
             <PDFViewer />

@@ -19,9 +19,8 @@ export default function KontaktLogin() {
                     <img src={zuruck} alt="back arrow" className='arrow' />
                 </div>
                 <div className="icon_container">
-                    <p className="zurucktxt">zurück</p>
+                    <p className="aileron-bold-white-24px">zurück</p>
                 </div>
-
             </Link>
             <PDFViewer />
             <FooterLong />
