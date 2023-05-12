@@ -25,6 +25,13 @@ import ImpressumRegistration from './pages/PDFsRegistration/ImpressumRegistratio
 import DatenschutzerklaerungRegistration from './pages/PDFsRegistration/DatenschutzerklaerungRegistration'
 import AGBsRegistration from './pages/PDFsRegistration/AGBsRegistration'
 
+//import welcome workflow
+import Birthday from './pages/WelcomeWorkflow/Birthday.jsx'
+import Gender from './pages/WelcomeWorkflow/Gender.jsx'
+import BodyData from './pages/WelcomeWorkflow/Bodydata.jsx'
+import Calories from './pages/WelcomeWorkflow/Calories'
+import Goal from './pages/WelcomeWorkflow/Goal'
+
 //import Private Routes module
 import PrivateRoutes from './components/utils/PrivateRoute'
 
@@ -35,6 +42,15 @@ export default function Router() {
                 <Route exact path='/' element={<Navigate to='login' />} />
                 <Route path='login' element={<LoginView />} />
                 <Route path='registration' element={<RegistrationView />} />
+
+                <Route path='welcomeworkflow'>
+                    <Route path='birthday' element={<Birthday />} />
+                    <Route path='gender' element={<Gender />} />
+                    <Route path='bodydata' element={<BodyData />} />
+                    <Route path='calories' element={<Calories />} />
+                    <Route path='goal' element={<Goal />} />
+                </Route>
+
                 <Route path='pdf' >
                     <Route path='login'>
                         <Route path='kontakt' element={<KontaktLogin />} />
@@ -53,11 +69,12 @@ export default function Router() {
 
                 </Route>
 
+
                 <Route element={<PrivateRoutes />}>
                     <Route path='home' element={<Home />} />
                     <Route path='profile' element={<Profile />} />
                     <Route path='calculator' element={<Calculator />} />
-                    <Route path='workoutplan' element={<Workoutplan />}/>
+                    <Route path='workoutplan' element={<Workoutplan />} />
 
                     <Route path='pdf'>
 

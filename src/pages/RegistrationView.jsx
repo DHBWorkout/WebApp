@@ -110,7 +110,7 @@ export default function RegistrationView() {
             if (response.ok) {
                 setErrorMessage('Connection established')
                 document.cookie = "token=" + (await response.json()).Response.Token;
-                navigate('/home')
+                navigate('/welcomeworkflow/birthday')
             } else {
                 setErrorMessage('Diese E-Mail ist bereits vergeben')
             }

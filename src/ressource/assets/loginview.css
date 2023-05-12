@@ -74,43 +74,25 @@
     height: 90%;
     width: 20%;
     display:flex;
-    flex-direction:column ;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 }
 
 .icon_container {
-    width: 30%;
-    height: 9%;
+    width: 100%;
+    height: 30%;
     display:flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .arrow {
-    height: 100%;
-    width: 100%;
-
+    height: 50%;
+    width: 50%;
 }
 
 .logo {
-    width: 200px;
-    height: 160px;
-    display:flex;
-    margin-bottom: 400px;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.zurucktxt{
-    font-size: 32px;
-    color: white;
-    margin-top: 400px;
-    text-decoration: none;
-    border-bottom: none;
-    text-decoration-color: white;
-    outline: none;
-
+    width: 80%;
 }
