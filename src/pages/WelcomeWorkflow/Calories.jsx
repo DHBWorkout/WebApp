@@ -6,7 +6,13 @@ import Logo from '../../ressource/icons/logo.png'
 
 export default function Calories() {
 
+    const [calories, setCalories] = useState(0)
+    const [errorMessage, setErrorMessage] = useState("")
     const navigate = useNavigate()
+
+    const handleCalories = (e) => {
+        setCalories(e.target.value)
+    }
 
     const handleBack = () => {
         navigate("/welcomeworkflow/bodydata")
@@ -14,8 +20,14 @@ export default function Calories() {
 
     const handleContinue = () => {
         //daten speichern
-        storageData()
-        navigate("/welcomeworkflow/goal")
+
+        if (calories !== 0) {
+            storageData()
+            navigate("/welcomeworkflow/goal")
+        } else {
+            setErrorMessage("Gebe deinen täglichen Kalorienbedarf an!")
+        }
+
     }
 
     const handleSkip = () => {
@@ -23,7 +35,7 @@ export default function Calories() {
     }
 
     const storageData = () => {
-        console.log("quatsch mit soße")
+        console.log(calories)
     }
     return (
         <div className="fullview">
@@ -38,6 +50,22 @@ export default function Calories() {
                 <div className="logo_container">
                     <img src={Logo} alt="dhbworkout logo" className="gender-logo" />
                 </div>
+
+                <div className="interaction_container">
+                    <div className="calories_container">
+                        <div className="data-row_container">
+                            <div className="data-label">
+                                <p className="aileron-bold-white-18px">Täglicher Kalorienbedarf:</p>
+                            </div>
+                            <input onChange={handleCalories} placeholder="z.B. 2400" />
+                        </div>
+                    </div>
+                    <div className="birthday-error-message">
+                        {errorMessage && <p className="aileron-bold-dark-red-24px">{errorMessage}</p>}
+                    </div>
+                </div>
+
+
 
                 <div className="ww-button_container">
                     <button onClick={handleBack} className="ww-button aileron-bold-white-16px">Zurück</button>
