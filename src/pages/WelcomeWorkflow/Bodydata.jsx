@@ -29,6 +29,8 @@ export default function BodyData() {
     }
 
     const handleSkip = () => {
+        document.cookie = "weight=" + weight
+        document.cookie = "height=" + height
         navigate("/welcomeworkflow/calories")
     }
 
@@ -37,6 +39,8 @@ export default function BodyData() {
             "weight": weight,
             "height": height
         }
+        document.cookie = "weight=" + weight
+        document.cookie = "height=" + height
         console.log(userdata)
     }
 

@@ -23,6 +23,7 @@ export default function Gender() {
     }
 
     const handleSkip = () => {
+        document.cookie = "gender="
         navigate("/welcomeworkflow/bodydata")
     }
 
@@ -36,6 +37,7 @@ export default function Gender() {
     }
 
     const storageData = () => {
+        document.cookie = "gender=" + gender
         console.log(gender)
     }
 

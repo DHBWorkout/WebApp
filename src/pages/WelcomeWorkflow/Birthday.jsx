@@ -11,6 +11,8 @@ export default function Birthday() {
     const [month, setMonth] = useState('');
     const [year, setYear] = useState('');
 
+    const [errorMessage, setErrorMessage] = useState("")
+
     const daysInMonth = (month, year) => {
         return new Date(year, month, 0).getDate();
     };
@@ -50,6 +52,7 @@ export default function Birthday() {
                 return true;
             }
         }
+        setErrorMessage("Gebe ein korrektes Datum an!")
         return false;
     };
 
@@ -67,11 +70,13 @@ export default function Birthday() {
     }
 
     const handleSkip = () => {
+        document.cookie = "birthday="
         navigate("/welcomeworkflow/gender")
     }
 
     const storageData = () => {
         const selectedDate = `${year}-${month}-${day}`;
+        document.cookie = "birthday=" + selectedDate
         console.log(selectedDate);
     }
 
@@ -94,7 +99,6 @@ export default function Birthday() {
                         <div className="selector_container">
                             <div className="selector">
                                 <select value={day} onChange={handleDayChange}>
-                                    <option value=""></option>
                                     {days.map((day) => (
                                         <option key={day} value={day}>
                                             {day}
@@ -110,7 +114,6 @@ export default function Birthday() {
                         <div className="selector_container">
                             <div className="selector">
                                 <select value={month} onChange={handleMonthChange}>
-                                    <option value=""></option>
                                     {months.map((month) => (
                                         <option key={month} value={month}>
                                             {month}
@@ -126,7 +129,6 @@ export default function Birthday() {
                         <div className="selector_container">
                             <div className="selector">
                                 <select value={year} onChange={handleYearChange}>
-                                    <option value=""></option>
                                     {years.map((year) => (
                                         <option key={year} value={year}>
                                             {year}
@@ -144,8 +146,8 @@ export default function Birthday() {
 
                     </div>
 
-                    <div className="birthday-error-message">
-                        {!isValidDate() && <p className="aileron-bold-dark-red-24px">Bitte gebe ein korrektes Datum an.</p>}
+                    <div className="welcomeworkflow-error-message">
+                        {errorMessage && !isValidDate() && <p className="aileron-bold-dark-red-24px">{errorMessage}</p>}
                     </div>
                 </div>
 

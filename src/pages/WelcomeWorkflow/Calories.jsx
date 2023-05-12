@@ -31,10 +31,12 @@ export default function Calories() {
     }
 
     const handleSkip = () => {
+        document.cookie = "calories=" + calories
         navigate("/welcomeworkflow/goal")
     }
 
     const storageData = () => {
+        document.cookie = "calories=" + calories
         console.log(calories)
     }
     return (
@@ -60,7 +62,7 @@ export default function Calories() {
                             <input onChange={handleCalories} placeholder="z.B. 2400" />
                         </div>
                     </div>
-                    <div className="birthday-error-message">
+                    <div className="welcomeworkflow-error-message">
                         {errorMessage && <p className="aileron-bold-dark-red-24px">{errorMessage}</p>}
                     </div>
                 </div>
