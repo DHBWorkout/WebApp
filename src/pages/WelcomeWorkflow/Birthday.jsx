@@ -98,7 +98,7 @@ export default function Birthday() {
                     <div className="birthday-selector_container">
                         <div className="selector_container">
                             <div className="selector">
-                                <select value={day} onChange={handleDayChange}>
+                                <select className="select aileron-bold-black-24px" value={day} onChange={handleDayChange}>
                                     {days.map((day) => (
                                         <option key={day} value={day}>
                                             {day}
@@ -107,13 +107,13 @@ export default function Birthday() {
                                 </select>
                             </div>
                             <div className="label_container">
-                                <p className="aileron-bold-white-18px">Tag</p>
+                                <p className="aileron-bold-white-24px">Tag</p>
                             </div>
                         </div>
 
                         <div className="selector_container">
                             <div className="selector">
-                                <select value={month} onChange={handleMonthChange}>
+                                <select className="select aileron-bold-black-24px" value={month} onChange={handleMonthChange}>
                                     {months.map((month) => (
                                         <option key={month} value={month}>
                                             {month}
@@ -122,13 +122,13 @@ export default function Birthday() {
                                 </select>
                             </div>
                             <div className="label_container">
-                                <p className="aileron-bold-white-18px">Monat</p>
+                                <p className="aileron-bold-white-24px">Monat</p>
                             </div>
                         </div>
 
                         <div className="selector_container">
                             <div className="selector">
-                                <select value={year} onChange={handleYearChange}>
+                                <select className="select aileron-bold-black-24px" value={year} onChange={handleYearChange}>
                                     {years.map((year) => (
                                         <option key={year} value={year}>
                                             {year}
@@ -137,7 +137,7 @@ export default function Birthday() {
                                 </select>
                             </div>
                             <div className="label_container">
-                                <p className="aileron-bold-white-18px">Jahr</p>
+                                <p className="aileron-bold-white-24px">Jahr</p>
                             </div>
                         </div>
 
