@@ -45,7 +45,7 @@ pipeline {
 
                     steps {
                         script {
-                            sh "docker run --rm --network=dhbworkout --ip=10.24.102.16 -v dhbworkout-webapp-test-results:/app/test-results --name=dhbworkout-test 10.22.100.20:9005/dhbworkout/webapp sh test.sh"
+                            sh "docker run --rm --network=dhbworkout --ip=10.24.102.16 -v dhbworkout-webapp-test-results:/app/test-results --name=dhbworkout-test --shm-size=1gb 10.22.100.20:9005/dhbworkout/webapp sh test.sh"
                         }
                     }
                     post {
