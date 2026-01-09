@@ -1,24 +1,22 @@
 pipeline {
     agent any
+    options {
+        disableConcurrentBuilds()
+        disableResume()
+    }
+    triggers {
+        githubPush()
+    }
     stages {
         stage('Checkout Service') {
             steps {
                 script {
-                    // The below will clone your repo and will be checked out to master branch by default.
-                    git branch: 'master', credentialsId: 'GitHub-DerFrZocker-Read-DHBWorkout', url: "https://github.com/DHBWorkout/WebApp.git"
-                    // Do a ls -lart to view all the files are cloned. It will be cloned. This is just for you to be sure about it.
-                    sh "ls -lart ./*"
-                    // List all branches in your repo.
-                    sh "git branch -a"
-                    // Checkout to a specific branch in your repo.
-                    sh "git checkout master"
+                    checkout scmGit(branches: [[name: '*/master']], userRemoteConfigs: [[credentialsId: 'GitHub-DerFrZocker-Read-DHBWorkout', url: 'https://github.com/DHBWorkout/WebApp.git']])
                 }
             }
         }
 
         stage('Build Image') {
-            /* This builds the actual image; synonymous to
-             * docker build on the command line */
             steps {
                 script {
                     app = docker.build("dhbworkout/webapp", ".")
@@ -26,13 +24,29 @@ pipeline {
             }
         }
 
+        stage('Run Test') {
+            agent {
+                docker {
+                    args '--network=dhbworkout --ip=10.24.102.16 --name=dhbworkout-test --shm-size=1gb'
+                    image 'node:19'
+                }
+            }
+            steps {
+                script {
+                    // Copied from Dockerfile
+                    sh 'npm install -g serve'
+                    sh 'npm ci'
+
+                    sh 'sh test.sh'
+
+                    recordCoverage( id: 'tests', name: 'Tests', tools: [[parser: 'JUNIT', pattern: './test-results/results.xml']], sourceDirectories: [[path: 'glob:**/src']])
+                }
+            }
+        }
+
         stage('Push Image') {
             steps {
                 script {
-                    /* Finally, we'll push the image with two tags:
-                     * First, the incremental build number from Jenkins
-                     * Second, the 'latest' tag.
-                     * Pushing multiple tags is cheap, as all the layers are reused. */
                     docker.withRegistry('http://10.22.100.20:9005', 'Nexus-DerFrZocker-de-Upload-Reading') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
@@ -41,25 +55,6 @@ pipeline {
             }
         }
 
-        stage('Run Test') {
-
-                    steps {
-                        script {
-                            sh "docker run --rm --network=dhbworkout --ip=10.24.102.16 -v dhbworkout-webapp-test-results:/app/test-results --name=dhbworkout-test --shm-size=1gb 10.22.100.20:9005/dhbworkout/webapp sh test.sh"
-                        }
-                    }
-                    post {
-                        always {
-                            script {
-                                if (fileExists('/dhbworkout-webapp-test-results')) {
-                                    sh "ls -l /dhbworkout-webapp-test-results"
-                                    sh "cp /dhbworkout-webapp-test-results/results.xml results.xml"
-                                    junit 'results.xml'
-                                }
-                            }
-                        }
-                    }
-                }
 
         stage('Run Container') {
             steps {
@@ -71,9 +66,11 @@ pipeline {
                     } catch (err) {
                         echo err.getMessage()
                     }
+
                     sh "docker run -d --restart=always --network=dhbworkout --ip=10.24.102.15 --name=dhbworkout-webapp 10.22.100.20:9005/dhbworkout/webapp"
                 }
             }
         }
     }
 }
+

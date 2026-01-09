@@ -1,12 +1,15 @@
 FROM node:19
+
+USER 526
 WORKDIR /app
 
 RUN npm install -g serve
 
-COPY package.json package-lock.json ./
+COPY --chown=526 package.json package-lock.json ./
 RUN npm ci
 
-COPY . /app
+COPY --chown=526 . /app
 
 EXPOSE 3000
-CMD ["sh", "start.sh"]
+ENTRYPOINT ["sh", "start.sh"]
+
