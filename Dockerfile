@@ -1,9 +1,10 @@
 FROM node:19
 
-USER 526
 WORKDIR /app
 
 RUN npm install -g serve
+
+USER 526
 
 COPY --chown=526 package.json package-lock.json ./
 RUN npm ci
