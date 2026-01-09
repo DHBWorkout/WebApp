@@ -3,6 +3,7 @@ FROM node:19
 WORKDIR /app
 
 RUN npm install -g serve
+RUN chown -R 526:0 "/.npm
 
 USER 526
 
