@@ -29,6 +29,7 @@ pipeline {
                 docker {
                     args '--network=dhbworkout --ip=10.24.102.16 --name=dhbworkout-test --shm-size=1gb'
                     image 'node:19'
+                    reuseNode true
                 }
             }
             steps {
@@ -39,7 +40,7 @@ pipeline {
 
                     sh 'sh test.sh'
 
-                    recordCoverage( id: 'tests', name: 'Tests', tools: [[parser: 'JUNIT', pattern: './test-results/results.xml']], sourceDirectories: [[path: 'glob:**/src']])
+                    recordCoverage( id: 'tests', name: 'Tests', tools: [[parser: 'JUNIT', pattern: 'test-results/results.xml']])
                 }
             }
         }
